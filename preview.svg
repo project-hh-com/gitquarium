@@ -77,26 +77,26 @@
       100% { transform: translateY(-380px) translateX(-4px); opacity: 0; }
     }
 
-    /* Type Jellyfish Bobbing */
+        /* Type Jellyfish Propulsion Animation */
     .jellyfish {
-      animation: jellyPropel 4.5s ease-in-out infinite alternate;
+      animation: jellyPropel 5s ease-in-out infinite alternate;
     }
     @keyframes jellyPropel {
-      0% { transform: translate(380px, 190px) scale(1, 1); }
-      20% { transform: translate(385px, 140px) scale(0.92, 1.12); }
-      50% { transform: translate(395px, 120px) scale(1.05, 0.95); }
-      80% { transform: translate(405px, 160px) scale(0.98, 1.02); }
-      100% { transform: translate(410px, 190px) scale(1, 1); }
+      0%   { transform: translate(400px, 175px) scale(1, 1); }
+      25%  { transform: translate(400px, 140px) scale(0.92, 1.08); }
+      50%  { transform: translate(405px, 125px) scale(1.05, 0.95); }
+      75%  { transform: translate(410px, 150px) scale(0.98, 1.02); }
+      100% { transform: translate(415px, 180px) scale(1, 1); }
     }
 
-    /* Tentacle Wave */
-    .tentacle {
-      animation: tentacleWave 2.5s ease-in-out infinite alternate;
+    .tentacles-group {
+      animation: tentacleSway 3s ease-in-out infinite alternate;
+      transform-box: fill-box;
       transform-origin: top center;
     }
-    @keyframes tentacleWave {
-      0% { transform: rotate(-6deg); }
-      100% { transform: rotate(6deg); }
+    @keyframes tentacleSway {
+      0%   { transform: rotate(-4deg); }
+      100% { transform: rotate(4deg); }
     }
 
     /* Neon Tetra 1 Swimming */
@@ -187,21 +187,41 @@
     <circle class="bubble b5" cx="0" cy="0" r="4" fill="#bae6fd" />
   </g>
 
-  <!-- 🪼 TypeScript Jellyfish -->
+    <!-- 🪼 TypeScript Jellyfish (Fixed & Super Cute) -->
   <g class="jellyfish" filter="url(#glow)">
-    <!-- Jellyfish Dome -->
-    <path d="M -28,0 C -28,-26 28,-26 28,0 C 20,4 12,2 0,3 C -12,2 -20,4 -28,0 Z" fill="url(#jellyDome)" stroke="#38bdf8" stroke-width="1.5" />
+    <!-- Outer Bell / Dome -->
+    <path d="M -24,0 C -24,-26 24,-26 24,0 C 16,3 8,1 0,2 C -8,1 -16,3 -24,0 Z" 
+          fill="url(#jellyDome)" stroke="#38bdf8" stroke-width="1.8" />
     
-    <!-- TypeScript Badge inside Dome -->
-    <rect x="-9" y="-18" width="18" height="13" rx="2.5" fill="#0284c7" />
-    <text x="0" y="-8" font-family="'Courier New', monospace, sans-serif" font-size="8.5" font-weight="900" fill="#ffffff" text-anchor="middle">TS</text>
+    <!-- Scalloped Frills at bottom of bell -->
+    <path d="M -24,0 Q -18,5 -12,0 Q -6,5 0,0 Q 6,5 12,0 Q 18,5 24,0" 
+          fill="none" stroke="#7dd3fc" stroke-width="1.8" stroke-linecap="round" />
 
-    <!-- Tentacles -->
-    <g class="tentacle">
-      <path d="M -16,2 Q -20,18 -14,35 T -16,55" fill="none" stroke="#38bdf8" stroke-width="1.5" stroke-linecap="round" opacity="0.8" />
-      <path d="M -6,3 Q -10,22 -3,42 T -5,62" fill="none" stroke="#7dd3fc" stroke-width="1.8" stroke-linecap="round" opacity="0.9" />
-      <path d="M 6,3 Q 2,22 9,42 T 7,62" fill="none" stroke="#7dd3fc" stroke-width="1.8" stroke-linecap="round" opacity="0.9" />
-      <path d="M 16,2 Q 20,18 14,35 T 16,55" fill="none" stroke="#38bdf8" stroke-width="1.5" stroke-linecap="round" opacity="0.8" />
+    <!-- Cute Face -->
+    <circle cx="-8" cy="-10" r="1.8" fill="#ffffff" />
+    <circle cx="-7.5" cy="-10.5" r="0.9" fill="#0369a1" />
+    <circle cx="8" cy="-10" r="1.8" fill="#ffffff" />
+    <circle cx="8.5" cy="-10.5" r="0.9" fill="#0369a1" />
+    <!-- Pink Blush -->
+    <ellipse cx="-13" cy="-6" rx="2.5" ry="1.2" fill="#f472b6" opacity="0.6" />
+    <ellipse cx="13" cy="-6" rx="2.5" ry="1.2" fill="#f472b6" opacity="0.6" />
+    <!-- Smile -->
+    <path d="M -3,-6 Q 0,-3 3,-6" fill="none" stroke="#0284c7" stroke-width="1.2" stroke-linecap="round" />
+
+    <!-- Small TS Ribbon Badge -->
+    <rect x="-8" y="-22" width="16" height="10" rx="2.5" fill="#0284c7" opacity="0.9" />
+    <text x="0" y="-14.5" font-family="'Courier New', monospace, sans-serif" font-size="7.5" font-weight="900" fill="#ffffff" text-anchor="middle">TS</text>
+
+    <!-- Downward Flowing Tentacles (Soft & Wavy) -->
+    <g class="tentacles-group">
+      <!-- Outer Left Tentacle -->
+      <path d="M -16,2 C -20,12 -12,24 -15,36" fill="none" stroke="#38bdf8" stroke-width="1.6" stroke-linecap="round" opacity="0.85" />
+      <!-- Inner Left Oral Arm -->
+      <path d="M -7,3 C -10,14 -4,26 -6,40" fill="none" stroke="#bae6fd" stroke-width="2" stroke-linecap="round" opacity="0.95" />
+      <!-- Inner Right Oral Arm -->
+      <path d="M 7,3 C 4,14 10,26 6,40" fill="none" stroke="#bae6fd" stroke-width="2" stroke-linecap="round" opacity="0.95" />
+      <!-- Outer Right Tentacle -->
+      <path d="M 16,2 C 20,12 12,24 15,36" fill="none" stroke="#38bdf8" stroke-width="1.6" stroke-linecap="round" opacity="0.85" />
     </g>
   </g>
 
