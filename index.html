@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🐠 GitQuarium : Your Commits Swimming in Real-Time</title>
+  <link rel="icon" href="./preview.png" type="image/png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @keyframes pulseGlow {
+      0%, 100% { opacity: 0.4; transform: scale(1); }
+      50% { opacity: 0.8; transform: scale(1.05); }
+    }
+    .ambient-glow {
+      animation: pulseGlow 6s ease-in-out infinite;
+    }
+  </style>
+</head>
+<body class="bg-[#060b19] text-slate-100 min-h-screen flex flex-col font-sans selection:bg-cyan-500 selection:text-white">
+
+  <!-- Background Ambient Glow -->
+  <div class="fixed inset-0 pointer-events-none overflow-hidden">
+    <div class="absolute top-[-10%] left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-gradient-to-b from-cyan-500/15 via-blue-600/10 to-transparent blur-3xl ambient-glow"></div>
+  </div>
+
+  <!-- Header -->
+  <header class="relative z-10 border-b border-slate-800/80 backdrop-blur-md bg-[#060b19]/70 px-6 py-4 flex items-center justify-between max-w-6xl w-full mx-auto">
+    <div class="flex items-center gap-3">
+      <span class="text-2xl">🐠</span>
+      <span class="text-lg font-black tracking-tight bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">GitQuarium</span>
+      <span class="text-xs px-2 py-0.5 rounded-full bg-cyan-950/80 text-cyan-300 border border-cyan-800/60 font-mono">prototype v0.1</span>
+    </div>
+    <div class="flex items-center gap-4 text-sm text-slate-400">
+      <a href="https://github.com/project-hh-com/gitquarium" target="_blank" class="hover:text-cyan-400 transition flex items-center gap-1.5">
+        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+        GitHub
+      </a>
+      <a href="https://portfolio.project-hh.com" target="_blank" class="hover:text-cyan-400 transition font-mono text-xs text-slate-500">
+        project-hh.com ↗
+      </a>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="relative z-10 flex-1 max-w-5xl w-full mx-auto px-6 py-10 flex flex-col items-center">
+    
+    <!-- Hero Title -->
+    <div class="text-center max-w-2xl mb-8">
+      <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight mb-3">
+        내 커밋이 살아 숨 쉬는 <span class="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">실시간 깃 수족관</span>
+      </h1>
+      <p class="text-slate-400 text-sm sm:text-base leading-relaxed">
+        Git commit, push, PR 머지 기록이 물고기가 되어 헤엄치는 인터랙티브 수족관입니다.<br class="hidden sm:inline">
+        GitHub 프로필 README에 한 줄로 살아있는 어항을 심어보세요!
+      </p>
+    </div>
+
+    <!-- Live SVG Aquarium Display -->
+    <div class="w-full max-w-4xl bg-slate-900/60 p-3 rounded-2xl border border-slate-800 shadow-2xl shadow-cyan-950/40 relative group">
+      <div class="w-full aspect-[850/400] rounded-xl overflow-hidden bg-[#0a1226]">
+        <img src="./preview.svg" alt="GitQuarium Live Tank" class="w-full h-full object-contain" />
+      </div>
+      <div class="absolute bottom-6 right-6 opacity-0 group-hover:opacity-100 transition">
+        <a href="./preview.svg" target="_blank" class="text-xs bg-slate-800/90 hover:bg-slate-700 text-cyan-300 px-3 py-1.5 rounded-lg border border-slate-700 shadow flex items-center gap-1.5">
+          SVG 원본 보기 ↗
+        </a>
+      </div>
+    </div>
+
+    <!-- Embed Code Snippet Card -->
+    <div class="w-full max-w-4xl mt-8 bg-slate-900/80 border border-slate-800 rounded-xl p-5">
+      <div class="flex items-center justify-between mb-3">
+        <div class="flex items-center gap-2">
+          <span class="text-xs font-bold text-cyan-400 uppercase tracking-wider">GitHub README Embed</span>
+          <span class="text-xs text-slate-500">• 마크다운 한 줄 복사하기</span>
+        </div>
+        <button id="copyBtn" onclick="copyMarkdown()" class="text-xs bg-cyan-600 hover:bg-cyan-500 text-white font-medium px-3 py-1 rounded-md transition flex items-center gap-1">
+          <span>복사</span>
+        </button>
+      </div>
+      <pre class="bg-black/60 p-3.5 rounded-lg border border-slate-800/80 text-cyan-300 font-mono text-xs overflow-x-auto select-all"><code id="embedCode">![My GitQuarium](https://gitquarium.project-hh.com/preview.svg)</code></pre>
+    </div>
+
+    <!-- Fish Roster Preview -->
+    <div class="w-full max-w-4xl mt-10 grid grid-cols-1 sm:grid-cols-3 gap-4">
+      <div class="p-4 rounded-xl bg-slate-900/50 border border-slate-800/70 hover:border-cyan-800/60 transition">
+        <div class="text-2xl mb-1.5">🪼</div>
+        <h3 class="font-bold text-sm text-slate-200">타입 해파리 (TypeScript)</h3>
+        <p class="text-xs text-slate-400 mt-1 leading-relaxed">TypeScript 커밋 시 부드럽게 유영하는 발광 해파리가 태어납니다.</p>
+      </div>
+      <div class="p-4 rounded-xl bg-slate-900/50 border border-slate-800/70 hover:border-cyan-800/60 transition">
+        <div class="text-2xl mb-1.5">🐟</div>
+        <h3 class="font-bold text-sm text-slate-200">네온 테트라 (Daily Commits)</h3>
+        <p class="text-xs text-slate-400 mt-1 leading-relaxed">매일의 커밋마다 떼지어 활발하게 헤엄치는 네온 송사리 무리입니다.</p>
+      </div>
+      <div class="p-4 rounded-xl bg-slate-900/50 border border-slate-800/70 hover:border-cyan-800/60 transition">
+        <div class="text-2xl mb-1.5">🐋</div>
+        <h3 class="font-bold text-sm text-slate-200">은하수 고래 (PR Milestones)</h3>
+        <p class="text-xs text-slate-400 mt-1 leading-relaxed">큰 마일스톤 PR 머지 시 어항 전체를 가로지르는 전설의 고래가 강림합니다.</p>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="relative z-10 border-t border-slate-800/80 py-6 text-center text-xs text-slate-500">
+    <p>© 2026 <a href="https://github.com/project-hh-com" class="text-slate-400 hover:text-cyan-400">project-hh-com</a> & <a href="https://github.com/dahee90522" class="text-slate-400 hover:text-cyan-400">@dahee90522</a>. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function copyMarkdown() {
+      const text = document.getElementById('embedCode').innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        const btn = document.getElementById('copyBtn');
+        btn.innerHTML = '<span>복사 완료! ✨</span>';
+        btn.classList.add('bg-emerald-600');
+        setTimeout(() => {
+          btn.innerHTML = '<span>복사</span>';
+          btn.classList.remove('bg-emerald-600');
+        }, 2000);
+      });
+    }
+  </script>
+</body>
+</html>
