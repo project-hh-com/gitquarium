@@ -18,7 +18,11 @@ import argparse
 
 def fetch_github_activity(username):
     url = f"https://api.github.com/users/{username}/events/public"
-    req = urllib.request.Request(url, headers={"User-Agent": "GitQuarium-Bot"})
+    headers = {"User-Agent": "GitQuarium-Bot"}
+    gh_token = os.environ.get("GH_TOKEN") or os.environ.get("GITHUB_TOKEN")
+    if gh_token:
+        headers["Authorization"] = f"token {gh_token}"
+    req = urllib.request.Request(url, headers=headers)
     events = []
     try:
         with urllib.request.urlopen(req, timeout=10) as resp:
@@ -54,10 +58,10 @@ def fetch_github_activity(username):
             commit_count += 1
 
     if commit_count == 0:
-        commit_count = 8
+        commit_count = 30
         has_ts = True
 
-    fish_count = min(max(4, commit_count // 3 + 2), 7)
+    fish_count = 7
 
     return {
         "username": username,
@@ -197,6 +201,7 @@ def generate_pixel_svg(stats, w=850, h=180):
   </defs>
 
   <style>
+  <![CDATA[
     @keyframes pixelSway1 {{
       0% {{ transform: translate(0, 0); }}
       50% {{ transform: translate(-6px, 0); }}
@@ -213,7 +218,7 @@ def generate_pixel_svg(stats, w=850, h=180):
       80% {{ opacity: 0.7; }}
       100% {{ transform: translateY(-{h - 35}px); opacity: 0; }}
     }}
-    /* 🪼 TS Jellyfish Roaming & Propulsion Animation */
+    /* 🪼 TS Jellyfish Roaming and Propulsion Animation */
     @keyframes pixelJellyRoam {{
       0%   {{ transform: translate({center_x - 45}px, {jelly_y}px); }}
       25%  {{ transform: translate({center_x - 15}px, {jelly_y - 20}px); }}
@@ -229,6 +234,7 @@ def generate_pixel_svg(stats, w=850, h=180):
     .sway-right {{ animation: pixelSway2 4s steps(6) infinite alternate; }}
 
 {creature_styles}
+  ]]>
   </style>
 
   <!-- Deep Ocean Base -->
@@ -268,7 +274,7 @@ def generate_pixel_svg(stats, w=850, h=180):
     <rect x="0" y="0" width="5" height="5" fill="#38bdf8" />
   </g>
 
-  <!-- 🪼 TypeScript Jellyfish (Smooth Roaming & Propelling) -->
+  <!-- 🪼 TypeScript Jellyfish (Smooth Roaming and Propelling) -->
   <g class="jelly-roam">
     <rect x="-20" y="-6" width="40" height="12" fill="#0284c7" />
     <rect x="-16" y="-12" width="32" height="6" fill="#0284c7" />
