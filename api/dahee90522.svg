@@ -24,41 +24,77 @@
       80% { opacity: 0.7; }
       100% { transform: translateY(-145px); opacity: 0; }
     }
-    @keyframes pixelJellyBob {
-      0%   { transform: translate(425px, 79px); }
-      50%  { transform: translate(425px, 67px); }
-      100% { transform: translate(425px, 79px); }
+    /* 🪼 TS Jellyfish Roaming & Propulsion Animation */
+    @keyframes pixelJellyRoam {
+      0%   { transform: translate(380px, 79px); }
+      25%  { transform: translate(410px, 59px); }
+      50%  { transform: translate(465px, 71px); }
+      75%  { transform: translate(435px, 93px); }
+      100% { transform: translate(380px, 79px); }
     }
-    @keyframes pixelFish1 {
-      0%   { transform: translate(50px, 62px) scale(1, 1); }
-      49%  { transform: translate(730px, 68px) scale(1, 1); }
-      50%  { transform: translate(730px, 68px) scale(-1, 1); }
-      99%  { transform: translate(50px, 57px) scale(-1, 1); }
-      100% { transform: translate(50px, 62px) scale(1, 1); }
-    }
-    @keyframes pixelFish2 {
-      0%   { transform: translate(710px, 111px) scale(-1, 1); }
-      49%  { transform: translate(80px, 117px) scale(-1, 1); }
-      50%  { transform: translate(80px, 117px) scale(1, 1); }
-      99%  { transform: translate(710px, 104px) scale(1, 1); }
-      100% { transform: translate(710px, 111px) scale(-1, 1); }
-    }
-    @keyframes pixelFish3 {
-      0%   { transform: translate(160px, 135px) scale(1, 1); }
-      49%  { transform: translate(690px, 129px) scale(1, 1); }
-      50%  { transform: translate(690px, 129px) scale(-1, 1); }
-      99%  { transform: translate(160px, 140px) scale(-1, 1); }
-      100% { transform: translate(160px, 135px) scale(1, 1); }
-    }
-    .jelly-float { animation: pixelJellyBob 3.5s steps(8) infinite; }
-    .f1 { animation: pixelFish1 14s steps(50) infinite; }
-    .f2 { animation: pixelFish2 18s steps(50) infinite; }
-    .f3 { animation: pixelFish3 13s steps(50) infinite; }
+    .jelly-roam { animation: pixelJellyRoam 8s steps(60) infinite ease-in-out; }
     .pb1 { animation: pixelBubble 4s steps(15) infinite; }
     .pb2 { animation: pixelBubble 5.2s steps(15) infinite 1.2s; }
     .pb3 { animation: pixelBubble 4.6s steps(15) infinite 2.5s; }
     .sway-left { animation: pixelSway1 3.5s steps(6) infinite alternate; }
     .sway-right { animation: pixelSway2 4s steps(6) infinite alternate; }
+
+    @keyframes fishTrack1 {
+      0%   { transform: translate(50px, 46px) scale(1, 1); }
+      49%  { transform: translate(740px, 51px) scale(1, 1); }
+      50%  { transform: translate(740px, 51px) scale(-1, 1); }
+      99%  { transform: translate(50px, 41px) scale(-1, 1); }
+      100% { transform: translate(50px, 46px) scale(1, 1); }
+    }
+    .fish-1 { animation: fishTrack1 14s steps(50) infinite 0s; }
+    @keyframes fishTrack2 {
+      0%   { transform: translate(730px, 75px) scale(-1, 1); }
+      49%  { transform: translate(60px, 70px) scale(-1, 1); }
+      50%  { transform: translate(60px, 70px) scale(1, 1); }
+      99%  { transform: translate(730px, 80px) scale(1, 1); }
+      100% { transform: translate(730px, 75px) scale(-1, 1); }
+    }
+    .fish-2 { animation: fishTrack2 18s steps(50) infinite 2.5s; }
+    @keyframes fishTrack3 {
+      0%   { transform: translate(50px, 104px) scale(1, 1); }
+      49%  { transform: translate(740px, 109px) scale(1, 1); }
+      50%  { transform: translate(740px, 109px) scale(-1, 1); }
+      99%  { transform: translate(50px, 99px) scale(-1, 1); }
+      100% { transform: translate(50px, 104px) scale(1, 1); }
+    }
+    .fish-3 { animation: fishTrack3 15s steps(50) infinite 4.8s; }
+    @keyframes fishTrack4 {
+      0%   { transform: translate(730px, 125px) scale(-1, 1); }
+      49%  { transform: translate(60px, 120px) scale(-1, 1); }
+      50%  { transform: translate(60px, 120px) scale(1, 1); }
+      99%  { transform: translate(730px, 130px) scale(1, 1); }
+      100% { transform: translate(730px, 125px) scale(-1, 1); }
+    }
+    .fish-4 { animation: fishTrack4 20s steps(50) infinite 1.2s; }
+    @keyframes fishTrack5 {
+      0%   { transform: translate(50px, 57px) scale(1, 1); }
+      49%  { transform: translate(740px, 62px) scale(1, 1); }
+      50%  { transform: translate(740px, 62px) scale(-1, 1); }
+      99%  { transform: translate(50px, 52px) scale(-1, 1); }
+      100% { transform: translate(50px, 57px) scale(1, 1); }
+    }
+    .fish-5 { animation: fishTrack5 22s steps(50) infinite 7.0s; }
+    @keyframes fishTrack6 {
+      0%   { transform: translate(730px, 90px) scale(-1, 1); }
+      49%  { transform: translate(60px, 85px) scale(-1, 1); }
+      50%  { transform: translate(60px, 85px) scale(1, 1); }
+      99%  { transform: translate(730px, 95px) scale(1, 1); }
+      100% { transform: translate(730px, 90px) scale(-1, 1); }
+    }
+    .fish-6 { animation: fishTrack6 16s steps(50) infinite 3.5s; }
+    @keyframes fishTrack7 {
+      0%   { transform: translate(50px, 117px) scale(1, 1); }
+      49%  { transform: translate(740px, 122px) scale(1, 1); }
+      50%  { transform: translate(740px, 122px) scale(-1, 1); }
+      99%  { transform: translate(50px, 112px) scale(-1, 1); }
+      100% { transform: translate(50px, 117px) scale(1, 1); }
+    }
+    .fish-7 { animation: fishTrack7 19s steps(50) infinite 5.8s; }
   </style>
 
   <!-- Deep Ocean Base -->
@@ -98,8 +134,8 @@
     <rect x="0" y="0" width="5" height="5" fill="#38bdf8" />
   </g>
 
-  <!-- 🪼 Compact 8-Bit Pixel TypeScript Jellyfish -->
-  <g class="jelly-float">
+  <!-- 🪼 TypeScript Jellyfish (Smooth Roaming & Propelling) -->
+  <g class="jelly-roam">
     <rect x="-20" y="-6" width="40" height="12" fill="#0284c7" />
     <rect x="-16" y="-12" width="32" height="6" fill="#0284c7" />
     <rect x="-10" y="-16" width="20" height="4" fill="#38bdf8" />
@@ -122,8 +158,9 @@
     <rect x="8" y="18" width="3" height="7" fill="#38bdf8" />
   </g>
 
-  <!-- 🐟 Neon Tetras -->
-  <g class="f1">
+  <!-- 🐟 Active Swimming Fishes -->
+  <!-- 🐟 Neon Tetra 1 -->
+  <g class="fish-1">
     <rect x="-10" y="-3" width="20" height="6" fill="#0f172a" />
     <rect x="-5" y="-3" width="15" height="2" fill="#00f0ff" />
     <rect x="-6" y="1" width="12" height="2" fill="#ff0055" />
@@ -131,7 +168,8 @@
     <rect x="-13" y="3" width="3" height="3" fill="#38bdf8" />
     <rect x="5" y="-2" width="2" height="2" fill="#ffffff" />
   </g>
-  <g class="f2">
+  <!-- 🐟 Neon Tetra 2 -->
+  <g class="fish-2">
     <rect x="-10" y="-3" width="20" height="6" fill="#0f172a" />
     <rect x="-5" y="-3" width="15" height="2" fill="#38bdf8" />
     <rect x="-6" y="1" width="12" height="2" fill="#f43f5e" />
@@ -139,13 +177,50 @@
     <rect x="-13" y="3" width="3" height="3" fill="#38bdf8" />
     <rect x="5" y="-2" width="2" height="2" fill="#ffffff" />
   </g>
-  <g class="f3">
-    <rect x="-8" y="-2" width="16" height="5" fill="#0f172a" />
-    <rect x="-4" y="-2" width="12" height="2" fill="#22d3ee" />
-    <rect x="-5" y="1" width="9" height="2" fill="#fb7185" />
-    <rect x="-11" y="-4" width="3" height="2" fill="#38bdf8" />
-    <rect x="-11" y="2" width="3" height="2" fill="#38bdf8" />
-    <rect x="4" y="-2" width="2" height="2" fill="#ffffff" />
+  <!-- 🐟 Neon Tetra 3 -->
+  <g class="fish-3">
+    <rect x="-10" y="-3" width="20" height="6" fill="#0f172a" />
+    <rect x="-5" y="-3" width="15" height="2" fill="#22d3ee" />
+    <rect x="-6" y="1" width="12" height="2" fill="#fb7185" />
+    <rect x="-13" y="-5" width="3" height="3" fill="#38bdf8" />
+    <rect x="-13" y="3" width="3" height="3" fill="#38bdf8" />
+    <rect x="5" y="-2" width="2" height="2" fill="#ffffff" />
+  </g>
+  <!-- 🐟 Neon Tetra 4 -->
+  <g class="fish-4">
+    <rect x="-10" y="-3" width="20" height="6" fill="#0f172a" />
+    <rect x="-5" y="-3" width="15" height="2" fill="#a855f7" />
+    <rect x="-6" y="1" width="12" height="2" fill="#ec4899" />
+    <rect x="-13" y="-5" width="3" height="3" fill="#38bdf8" />
+    <rect x="-13" y="3" width="3" height="3" fill="#38bdf8" />
+    <rect x="5" y="-2" width="2" height="2" fill="#ffffff" />
+  </g>
+  <!-- 🐟 Neon Tetra 5 -->
+  <g class="fish-5">
+    <rect x="-10" y="-3" width="20" height="6" fill="#0f172a" />
+    <rect x="-5" y="-3" width="15" height="2" fill="#10b981" />
+    <rect x="-6" y="1" width="12" height="2" fill="#f59e0b" />
+    <rect x="-13" y="-5" width="3" height="3" fill="#38bdf8" />
+    <rect x="-13" y="3" width="3" height="3" fill="#38bdf8" />
+    <rect x="5" y="-2" width="2" height="2" fill="#ffffff" />
+  </g>
+  <!-- 🐟 Neon Tetra 6 -->
+  <g class="fish-6">
+    <rect x="-10" y="-3" width="20" height="6" fill="#0f172a" />
+    <rect x="-5" y="-3" width="15" height="2" fill="#00f0ff" />
+    <rect x="-6" y="1" width="12" height="2" fill="#3b82f6" />
+    <rect x="-13" y="-5" width="3" height="3" fill="#38bdf8" />
+    <rect x="-13" y="3" width="3" height="3" fill="#38bdf8" />
+    <rect x="5" y="-2" width="2" height="2" fill="#ffffff" />
+  </g>
+  <!-- 🐟 Neon Tetra 7 -->
+  <g class="fish-7">
+    <rect x="-10" y="-3" width="20" height="6" fill="#0f172a" />
+    <rect x="-5" y="-3" width="15" height="2" fill="#f43f5e" />
+    <rect x="-6" y="1" width="12" height="2" fill="#fbbf24" />
+    <rect x="-13" y="-5" width="3" height="3" fill="#38bdf8" />
+    <rect x="-13" y="3" width="3" height="3" fill="#38bdf8" />
+    <rect x="5" y="-2" width="2" height="2" fill="#ffffff" />
   </g>
 
   <!-- Top Left HUD (Slim) -->
