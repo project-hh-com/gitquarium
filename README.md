@@ -45,7 +45,7 @@
 Add this single line to your GitHub profile `README.md`:
 
 ```markdown
-![My GitQuarium](https://gitquarium.dev/api/dahee90522?theme=pixel)
+![My GitQuarium](https://gitquarium.project-hh.com/api/dahee90522?theme=pixel)
 ```
 
 ---
