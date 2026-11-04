@@ -1,0 +1,83 @@
+name: Deploy to AWS S3
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    env:
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      AWS_REGION: ap-northeast-2
+      BUCKET_NAME: gitquarium.project-hh.com
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Ensure S3 Bucket Exists & Configured
+        run: |
+          echo "Checking if bucket $BUCKET_NAME exists..."
+          if ! aws s3api head-bucket --bucket "$BUCKET_NAME" 2>/dev/null; then
+            echo "Bucket $BUCKET_NAME does not exist. Creating in $AWS_REGION..."
+            aws s3api create-bucket \
+              --bucket "$BUCKET_NAME" \
+              --region "$AWS_REGION" \
+              --create-bucket-configuration LocationConstraint="$AWS_REGION"
+          else
+            echo "Bucket $BUCKET_NAME already exists."
+          fi
+
+          # 1. Disable Block Public Access
+          aws s3api put-public-access-block \
+            --bucket "$BUCKET_NAME" \
+            --public-access-block-configuration "BlockPublicAcls=false,IgnorePublicAcls=false,BlockPublicPolicy=false,RestrictPublicBuckets=false"
+
+          # 2. Apply Bucket Policy for public read
+          cat <<EOF > /tmp/bucket-policy.json
+          {
+            "Version": "2012-10-17",
+            "Statement": [
+              {
+                "Sid": "PublicReadGetObject",
+                "Effect": "Allow",
+                "Principal": "*",
+                "Action": "s3:GetObject",
+                "Resource": "arn:aws:s3:::$BUCKET_NAME/*"
+              }
+            ]
+          }
+          EOF
+          aws s3api put-bucket-policy --bucket "$BUCKET_NAME" --policy file:///tmp/bucket-policy.json
+
+          # 3. Enable Static Website Hosting
+          aws s3 website "s3://$BUCKET_NAME" --index-document index.html --error-document index.html
+
+      - name: Sync Web Assets to S3
+        run: |
+          aws s3 sync . "s3://$BUCKET_NAME" \
+            --exclude ".git/*" \
+            --exclude ".github/*" \
+            --exclude "*.py" \
+            --exclude "*.md" \
+            --delete
+
+          # Explicitly set Content-Type for SVG
+          aws s3 cp preview.svg "s3://$BUCKET_NAME/preview.svg" \
+            --content-type "image/svg+xml" \
+            --cache-control "public, max-age=60" \
+            --metadata-directive REPLACE
+
+          echo "🚀 Deployment successfully completed!"
+          echo "Website URL: http://$BUCKET_NAME.s3-website.$AWS_REGION.amazonaws.com"
