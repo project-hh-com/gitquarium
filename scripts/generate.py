@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
 """
 GitQuarium SVG Generator
-Generates animated aquarium SVGs based on real-time GitHub user activity.
-- Generates exact fish count matching user stats (e.g. 7 fishes actively swimming).
-- TS Jellyfish roams & propels smoothly around the tank.
-- Default size is sleek banner: 850x180.
+Generates animated aquarium SVGs with diverse marine species:
+- 🪼 TypeScript Jellyfish (central gliding & propelling)
+- 🐡 Bug Pufferfish (chubby golden/orange spiky puffer)
+- ⚡ React Ray (cyan glowing stingray with sweeping tail)
+- 🏮 Nightshift Anglerfish (deep purple body with glowing yellow light bulb antenna)
+- 🐟 Neon Tetras (vibrant neon striped agile schooling fishes)
 """
 
 import sys
@@ -55,7 +57,7 @@ def fetch_github_activity(username):
         commit_count = 8
         has_ts = True
 
-    fish_count = min(max(3, commit_count // 3 + 2), 7)
+    fish_count = min(max(4, commit_count // 3 + 2), 7)
 
     return {
         "username": username,
@@ -72,64 +74,118 @@ def generate_pixel_svg(stats, w=850, h=180):
 
     sand_top = h - 28
     sand_base = h - 20
-    kelp_r_x = w - 85
-    hud_r_x = w - 210
+    kelp_r_x = max(w - 85, 200)
+    hud_r_x = max(w - 210, 220)
     center_x = w // 2
     jelly_y = int(h * 0.44)
 
-    # 1. Generate active swimming fishes matching fish_count exactly
-    depths = [0.26, 0.42, 0.58, 0.70, 0.32, 0.50, 0.65]
-    durations = [14, 18, 15, 20, 22, 16, 19]
-    delays = [0, 2.5, 4.8, 1.2, 7.0, 3.5, 5.8]
-    neon_colors = [
-        ('#00f0ff', '#ff0055'),
-        ('#38bdf8', '#f43f5e'),
-        ('#22d3ee', '#fb7185'),
-        ('#a855f7', '#ec4899'),
-        ('#10b981', '#f59e0b'),
-        ('#00f0ff', '#3b82f6'),
-        ('#f43f5e', '#fbbf24')
+    # We will generate 7 diverse creatures:
+    # 1. 🐡 Pufferfish (복어)
+    # 2. ⚡ React Ray (가오리)
+    # 3. 🏮 Anglerfish (야근 아귀)
+    # 4. 🐟 Neon Tetra (Cyan/Pink)
+    # 5. 🐟 Neon Tetra (Emerald/Gold)
+    # 6. 🐟 Neon Tetra (Purple/Magenta)
+    # 7. 🐟 Neon Tetra (Sky Blue/Coral)
+
+    styles = []
+    elements = []
+
+    # 1. 🐡 Bug Pufferfish (복어) - swims mid-depth, chubby & cute
+    styles.append(f"""    @keyframes pufferTrack {{
+      0%   {{ transform: translate(60px, {int(h*0.35)}px) scale(1, 1); }}
+      49%  {{ transform: translate({w - 110}px, {int(h*0.30)}px) scale(1, 1); }}
+      50%  {{ transform: translate({w - 110}px, {int(h*0.30)}px) scale(-1, 1); }}
+      99%  {{ transform: translate(60px, {int(h*0.38)}px) scale(-1, 1); }}
+      100% {{ transform: translate(60px, {int(h*0.35)}px) scale(1, 1); }}
+    }}
+    .creature-puffer {{ animation: pufferTrack 21s steps(60) infinite 1s; }}""")
+
+    elements.append(f"""  <!-- 🐡 Bug Pufferfish -->
+  <g class="creature-puffer">
+    <rect x="-8" y="-6" width="16" height="12" fill="#f59e0b" />
+    <rect x="-6" y="-8" width="12" height="16" fill="#f59e0b" />
+    <rect x="-4" y="2" width="8" height="4" fill="#fef3c7" />
+    <rect x="4" y="-4" width="3" height="3" fill="#ffffff" />
+    <rect x="5" y="-3" width="2" height="2" fill="#000000" />
+    <rect x="-11" y="-3" width="3" height="6" fill="#d97706" />
+    <rect x="-1" y="-10" width="3" height="2" fill="#d97706" />
+    <rect x="-1" y="8" width="3" height="2" fill="#d97706" />
+  </g>""")
+
+    # 2. ⚡ React Ray (가오리) - glides gracefully at upper-mid depth
+    styles.append(f"""    @keyframes rayTrack {{
+      0%   {{ transform: translate({w - 120}px, {int(h*0.52)}px) scale(-1, 1); }}
+      49%  {{ transform: translate(70px, {int(h*0.48)}px) scale(-1, 1); }}
+      50%  {{ transform: translate(70px, {int(h*0.48)}px) scale(1, 1); }}
+      99%  {{ transform: translate({w - 120}px, {int(h*0.56)}px) scale(1, 1); }}
+      100% {{ transform: translate({w - 120}px, {int(h*0.52)}px) scale(-1, 1); }}
+    }}
+    .creature-ray {{ animation: rayTrack 18s steps(60) infinite 3s; }}""")
+
+    elements.append(f"""  <!-- ⚡ React Ray -->
+  <g class="creature-ray">
+    <polygon points="0,-7 14,0 0,7 -10,0" fill="#0284c7" />
+    <polygon points="-2,-4 8,0 -2,4 -6,0" fill="#38bdf8" />
+    <circle cx="4" cy="-2" r="1.2" fill="#ffffff" />
+    <circle cx="4" cy="2" r="1.2" fill="#ffffff" />
+    <line x1="-10" y1="0" x2="-22" y2="0" stroke="#38bdf8" stroke-width="1.5" />
+  </g>""")
+
+    # 3. 🏮 Nightshift Anglerfish (야근 아귀) - deep sea prowler with glowing yellow lantern
+    styles.append(f"""    @keyframes anglerTrack {{
+      0%   {{ transform: translate(80px, {int(h*0.68)}px) scale(1, 1); }}
+      49%  {{ transform: translate({w - 130}px, {int(h*0.72)}px) scale(1, 1); }}
+      50%  {{ transform: translate({w - 130}px, {int(h*0.72)}px) scale(-1, 1); }}
+      99%  {{ transform: translate(80px, {int(h*0.65)}px) scale(-1, 1); }}
+      100% {{ transform: translate(80px, {int(h*0.68)}px) scale(1, 1); }}
+    }}
+    .creature-angler {{ animation: anglerTrack 24s steps(60) infinite 5s; }}""")
+
+    elements.append(f"""  <!-- 🏮 Nightshift Anglerfish -->
+  <g class="creature-angler">
+    <ellipse cx="0" cy="0" rx="9" ry="6" fill="#4c1d95" />
+    <rect x="4" y="-2" width="2" height="2" fill="#ffffff" />
+    <path d="M 2 -5 Q 6 -11 9 -8" stroke="#a78bfa" stroke-width="1.5" fill="none" />
+    <circle cx="9" cy="-8" r="2.5" fill="#fef08a" />
+    <polygon points="-9,0 -14,-4 -14,4" fill="#5b21b6" />
+  </g>""")
+
+    # 4~7. 🐟 Agile Neon Tetras (4 colors, varied depths & speeds)
+    tetras = [
+        (int(h*0.28), 13, 0.0, '#00f0ff', '#ff0055', False),
+        (int(h*0.60), 16, 4.0, '#10b981', '#f59e0b', True),
+        (int(h*0.42), 15, 6.5, '#a855f7', '#ec4899', False),
+        (int(h*0.75), 19, 2.5, '#38bdf8', '#f43f5e', True)
     ]
 
-    fish_styles = []
-    fish_elements = []
-
-    for i in range(fish_count):
-        idx = i + 1
-        y = int(h * depths[i % len(depths)])
-        dur = durations[i % len(durations)]
-        delay = delays[i % len(delays)]
-        c1, c2 = neon_colors[i % len(neon_colors)]
-        
-        rev = (i % 2 == 1)
+    for idx, (ty, dur, delay, c1, c2, rev) in enumerate(tetras, start=1):
         sx = -1 if rev else 1
-        x1 = w - 120 if rev else 50
+        x1 = w - 110 if rev else 50
         x2 = 60 if rev else w - 110
-        y_wobble = 5 if i % 2 == 0 else -5
+        yw = 4 if idx % 2 == 0 else -4
 
-        style = f"""    @keyframes fishTrack{idx} {{
-      0%   {{ transform: translate({x1}px, {y}px) scale({sx}, 1); }}
-      49%  {{ transform: translate({x2}px, {y + y_wobble}px) scale({sx}, 1); }}
-      50%  {{ transform: translate({x2}px, {y + y_wobble}px) scale({-sx}, 1); }}
-      99%  {{ transform: translate({x1}px, {y - y_wobble}px) scale({-sx}, 1); }}
-      100% {{ transform: translate({x1}px, {y}px) scale({sx}, 1); }}
+        styles.append(f"""    @keyframes tetraTrack{idx} {{
+      0%   {{ transform: translate({x1}px, {ty}px) scale({sx}, 1); }}
+      49%  {{ transform: translate({x2}px, {ty + yw}px) scale({sx}, 1); }}
+      50%  {{ transform: translate({x2}px, {ty + yw}px) scale({-sx}, 1); }}
+      99%  {{ transform: translate({x1}px, {ty - yw}px) scale({-sx}, 1); }}
+      100% {{ transform: translate({x1}px, {ty}px) scale({sx}, 1); }}
     }}
-    .fish-{idx} {{ animation: fishTrack{idx} {dur}s steps(50) infinite {delay}s; }}"""
-        fish_styles.append(style)
+    .tetra-{idx} {{ animation: tetraTrack{idx} {dur}s steps(50) infinite {delay}s; }}""")
 
-        elem = f"""  <!-- 🐟 Neon Tetra {idx} -->
-  <g class="fish-{idx}">
+        elements.append(f"""  <!-- 🐟 Neon Tetra {idx} -->
+  <g class="tetra-{idx}">
     <rect x="-10" y="-3" width="20" height="6" fill="#0f172a" />
     <rect x="-5" y="-3" width="15" height="2" fill="{c1}" />
     <rect x="-6" y="1" width="12" height="2" fill="{c2}" />
     <rect x="-13" y="-5" width="3" height="3" fill="#38bdf8" />
     <rect x="-13" y="3" width="3" height="3" fill="#38bdf8" />
     <rect x="5" y="-2" width="2" height="2" fill="#ffffff" />
-  </g>"""
-        fish_elements.append(elem)
+  </g>""")
 
-    fish_styles_str = "\n".join(fish_styles)
-    fish_elements_str = "\n".join(fish_elements)
+    creature_styles = "\n".join(styles)
+    creature_elements = "\n".join(elements)
 
     return f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {w} {h}" width="100%" height="100%" shape-rendering="crispEdges">
   <defs>
@@ -172,7 +228,7 @@ def generate_pixel_svg(stats, w=850, h=180):
     .sway-left {{ animation: pixelSway1 3.5s steps(6) infinite alternate; }}
     .sway-right {{ animation: pixelSway2 4s steps(6) infinite alternate; }}
 
-{fish_styles_str}
+{creature_styles}
   </style>
 
   <!-- Deep Ocean Base -->
@@ -236,8 +292,8 @@ def generate_pixel_svg(stats, w=850, h=180):
     <rect x="8" y="18" width="3" height="7" fill="#38bdf8" />
   </g>
 
-  <!-- 🐟 Active Swimming Fishes -->
-{fish_elements_str}
+  <!-- 🐠 Active Diverse Creatures -->
+{creature_elements}
 
   <!-- Top Left HUD (Slim) -->
   <g transform="translate(16, 12)">
@@ -252,7 +308,7 @@ def generate_pixel_svg(stats, w=850, h=180):
     <rect x="0" y="0" width="200" height="32" fill="#020617" stroke="#10b981" stroke-width="1.5" />
     <rect x="8" y="8" width="5" height="5" fill="#10b981" />
     <text x="18" y="15" font-family="'Courier New', monospace" font-size="8.5" font-weight="900" fill="#e2e8f0">{commits} COMMITS (7D)</text>
-    <text x="18" y="25" font-family="'Courier New', monospace" font-size="7.5" font-weight="700" fill="#38bdf8">{fish_count} FISHES SWIMMING</text>
+    <text x="18" y="25" font-family="'Courier New', monospace" font-size="7.5" font-weight="700" fill="#38bdf8">7 CREATURES SWIMMING</text>
   </g>
 </svg>"""
 
@@ -270,13 +326,20 @@ def main():
     os.makedirs("api", exist_ok=True)
 
     pixel_svg = generate_pixel_svg(stats, w=args.width, h=args.height)
-    with open(f"api/{args.user}", "w", encoding="utf-8") as f:
-        f.write(pixel_svg)
-    with open(f"api/{args.user}.svg", "w", encoding="utf-8") as f:
-        f.write(pixel_svg)
-    with open("preview-pixel.svg", "w", encoding="utf-8") as f:
-        f.write(pixel_svg)
-    print(f"[+] Successfully generated {args.width}x{args.height} slim banner with {stats['fish_count']} swimming fishes and roaming TS jellyfish!")
+    
+    # Write to multiple filenames for instant CDN cache busting
+    files = [
+        f"api/{args.user}",
+        f"api/{args.user}.svg",
+        f"api/{args.user}-live.svg",
+        "api/tank.svg",
+        "api/dahee.svg",
+        "preview-pixel.svg"
+    ]
+    for fn in files:
+        with open(fn, "w", encoding="utf-8") as f:
+            f.write(pixel_svg)
+    print(f"[+] Successfully generated diverse aquarium creatures for {files}!")
 
 if __name__ == "__main__":
     main()

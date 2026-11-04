@@ -39,62 +39,62 @@
     .sway-left { animation: pixelSway1 3.5s steps(6) infinite alternate; }
     .sway-right { animation: pixelSway2 4s steps(6) infinite alternate; }
 
-    @keyframes fishTrack1 {
-      0%   { transform: translate(50px, 46px) scale(1, 1); }
-      49%  { transform: translate(740px, 51px) scale(1, 1); }
-      50%  { transform: translate(740px, 51px) scale(-1, 1); }
-      99%  { transform: translate(50px, 41px) scale(-1, 1); }
-      100% { transform: translate(50px, 46px) scale(1, 1); }
+    @keyframes pufferTrack {
+      0%   { transform: translate(60px, 62px) scale(1, 1); }
+      49%  { transform: translate(740px, 54px) scale(1, 1); }
+      50%  { transform: translate(740px, 54px) scale(-1, 1); }
+      99%  { transform: translate(60px, 68px) scale(-1, 1); }
+      100% { transform: translate(60px, 62px) scale(1, 1); }
     }
-    .fish-1 { animation: fishTrack1 14s steps(50) infinite 0s; }
-    @keyframes fishTrack2 {
-      0%   { transform: translate(730px, 75px) scale(-1, 1); }
-      49%  { transform: translate(60px, 70px) scale(-1, 1); }
-      50%  { transform: translate(60px, 70px) scale(1, 1); }
-      99%  { transform: translate(730px, 80px) scale(1, 1); }
-      100% { transform: translate(730px, 75px) scale(-1, 1); }
+    .creature-puffer { animation: pufferTrack 21s steps(60) infinite 1s; }
+    @keyframes rayTrack {
+      0%   { transform: translate(730px, 93px) scale(-1, 1); }
+      49%  { transform: translate(70px, 86px) scale(-1, 1); }
+      50%  { transform: translate(70px, 86px) scale(1, 1); }
+      99%  { transform: translate(730px, 100px) scale(1, 1); }
+      100% { transform: translate(730px, 93px) scale(-1, 1); }
     }
-    .fish-2 { animation: fishTrack2 18s steps(50) infinite 2.5s; }
-    @keyframes fishTrack3 {
-      0%   { transform: translate(50px, 104px) scale(1, 1); }
-      49%  { transform: translate(740px, 109px) scale(1, 1); }
-      50%  { transform: translate(740px, 109px) scale(-1, 1); }
-      99%  { transform: translate(50px, 99px) scale(-1, 1); }
-      100% { transform: translate(50px, 104px) scale(1, 1); }
+    .creature-ray { animation: rayTrack 18s steps(60) infinite 3s; }
+    @keyframes anglerTrack {
+      0%   { transform: translate(80px, 122px) scale(1, 1); }
+      49%  { transform: translate(720px, 129px) scale(1, 1); }
+      50%  { transform: translate(720px, 129px) scale(-1, 1); }
+      99%  { transform: translate(80px, 117px) scale(-1, 1); }
+      100% { transform: translate(80px, 122px) scale(1, 1); }
     }
-    .fish-3 { animation: fishTrack3 15s steps(50) infinite 4.8s; }
-    @keyframes fishTrack4 {
-      0%   { transform: translate(730px, 125px) scale(-1, 1); }
-      49%  { transform: translate(60px, 120px) scale(-1, 1); }
-      50%  { transform: translate(60px, 120px) scale(1, 1); }
-      99%  { transform: translate(730px, 130px) scale(1, 1); }
-      100% { transform: translate(730px, 125px) scale(-1, 1); }
+    .creature-angler { animation: anglerTrack 24s steps(60) infinite 5s; }
+    @keyframes tetraTrack1 {
+      0%   { transform: translate(50px, 50px) scale(1, 1); }
+      49%  { transform: translate(740px, 46px) scale(1, 1); }
+      50%  { transform: translate(740px, 46px) scale(-1, 1); }
+      99%  { transform: translate(50px, 54px) scale(-1, 1); }
+      100% { transform: translate(50px, 50px) scale(1, 1); }
     }
-    .fish-4 { animation: fishTrack4 20s steps(50) infinite 1.2s; }
-    @keyframes fishTrack5 {
-      0%   { transform: translate(50px, 57px) scale(1, 1); }
-      49%  { transform: translate(740px, 62px) scale(1, 1); }
-      50%  { transform: translate(740px, 62px) scale(-1, 1); }
-      99%  { transform: translate(50px, 52px) scale(-1, 1); }
-      100% { transform: translate(50px, 57px) scale(1, 1); }
+    .tetra-1 { animation: tetraTrack1 13s steps(50) infinite 0.0s; }
+    @keyframes tetraTrack2 {
+      0%   { transform: translate(740px, 108px) scale(-1, 1); }
+      49%  { transform: translate(60px, 112px) scale(-1, 1); }
+      50%  { transform: translate(60px, 112px) scale(1, 1); }
+      99%  { transform: translate(740px, 104px) scale(1, 1); }
+      100% { transform: translate(740px, 108px) scale(-1, 1); }
     }
-    .fish-5 { animation: fishTrack5 22s steps(50) infinite 7.0s; }
-    @keyframes fishTrack6 {
-      0%   { transform: translate(730px, 90px) scale(-1, 1); }
-      49%  { transform: translate(60px, 85px) scale(-1, 1); }
-      50%  { transform: translate(60px, 85px) scale(1, 1); }
-      99%  { transform: translate(730px, 95px) scale(1, 1); }
-      100% { transform: translate(730px, 90px) scale(-1, 1); }
+    .tetra-2 { animation: tetraTrack2 16s steps(50) infinite 4.0s; }
+    @keyframes tetraTrack3 {
+      0%   { transform: translate(50px, 75px) scale(1, 1); }
+      49%  { transform: translate(740px, 71px) scale(1, 1); }
+      50%  { transform: translate(740px, 71px) scale(-1, 1); }
+      99%  { transform: translate(50px, 79px) scale(-1, 1); }
+      100% { transform: translate(50px, 75px) scale(1, 1); }
     }
-    .fish-6 { animation: fishTrack6 16s steps(50) infinite 3.5s; }
-    @keyframes fishTrack7 {
-      0%   { transform: translate(50px, 117px) scale(1, 1); }
-      49%  { transform: translate(740px, 122px) scale(1, 1); }
-      50%  { transform: translate(740px, 122px) scale(-1, 1); }
-      99%  { transform: translate(50px, 112px) scale(-1, 1); }
-      100% { transform: translate(50px, 117px) scale(1, 1); }
+    .tetra-3 { animation: tetraTrack3 15s steps(50) infinite 6.5s; }
+    @keyframes tetraTrack4 {
+      0%   { transform: translate(740px, 135px) scale(-1, 1); }
+      49%  { transform: translate(60px, 139px) scale(-1, 1); }
+      50%  { transform: translate(60px, 139px) scale(1, 1); }
+      99%  { transform: translate(740px, 131px) scale(1, 1); }
+      100% { transform: translate(740px, 135px) scale(-1, 1); }
     }
-    .fish-7 { animation: fishTrack7 19s steps(50) infinite 5.8s; }
+    .tetra-4 { animation: tetraTrack4 19s steps(50) infinite 2.5s; }
   </style>
 
   <!-- Deep Ocean Base -->
@@ -158,9 +158,36 @@
     <rect x="8" y="18" width="3" height="7" fill="#38bdf8" />
   </g>
 
-  <!-- 🐟 Active Swimming Fishes -->
+  <!-- 🐠 Active Diverse Creatures -->
+  <!-- 🐡 Bug Pufferfish -->
+  <g class="creature-puffer">
+    <rect x="-8" y="-6" width="16" height="12" fill="#f59e0b" />
+    <rect x="-6" y="-8" width="12" height="16" fill="#f59e0b" />
+    <rect x="-4" y="2" width="8" height="4" fill="#fef3c7" />
+    <rect x="4" y="-4" width="3" height="3" fill="#ffffff" />
+    <rect x="5" y="-3" width="2" height="2" fill="#000000" />
+    <rect x="-11" y="-3" width="3" height="6" fill="#d97706" />
+    <rect x="-1" y="-10" width="3" height="2" fill="#d97706" />
+    <rect x="-1" y="8" width="3" height="2" fill="#d97706" />
+  </g>
+  <!-- ⚡ React Ray -->
+  <g class="creature-ray">
+    <polygon points="0,-7 14,0 0,7 -10,0" fill="#0284c7" />
+    <polygon points="-2,-4 8,0 -2,4 -6,0" fill="#38bdf8" />
+    <circle cx="4" cy="-2" r="1.2" fill="#ffffff" />
+    <circle cx="4" cy="2" r="1.2" fill="#ffffff" />
+    <line x1="-10" y1="0" x2="-22" y2="0" stroke="#38bdf8" stroke-width="1.5" />
+  </g>
+  <!-- 🏮 Nightshift Anglerfish -->
+  <g class="creature-angler">
+    <ellipse cx="0" cy="0" rx="9" ry="6" fill="#4c1d95" />
+    <rect x="4" y="-2" width="2" height="2" fill="#ffffff" />
+    <path d="M 2 -5 Q 6 -11 9 -8" stroke="#a78bfa" stroke-width="1.5" fill="none" />
+    <circle cx="9" cy="-8" r="2.5" fill="#fef08a" />
+    <polygon points="-9,0 -14,-4 -14,4" fill="#5b21b6" />
+  </g>
   <!-- 🐟 Neon Tetra 1 -->
-  <g class="fish-1">
+  <g class="tetra-1">
     <rect x="-10" y="-3" width="20" height="6" fill="#0f172a" />
     <rect x="-5" y="-3" width="15" height="2" fill="#00f0ff" />
     <rect x="-6" y="1" width="12" height="2" fill="#ff0055" />
@@ -169,34 +196,7 @@
     <rect x="5" y="-2" width="2" height="2" fill="#ffffff" />
   </g>
   <!-- 🐟 Neon Tetra 2 -->
-  <g class="fish-2">
-    <rect x="-10" y="-3" width="20" height="6" fill="#0f172a" />
-    <rect x="-5" y="-3" width="15" height="2" fill="#38bdf8" />
-    <rect x="-6" y="1" width="12" height="2" fill="#f43f5e" />
-    <rect x="-13" y="-5" width="3" height="3" fill="#38bdf8" />
-    <rect x="-13" y="3" width="3" height="3" fill="#38bdf8" />
-    <rect x="5" y="-2" width="2" height="2" fill="#ffffff" />
-  </g>
-  <!-- 🐟 Neon Tetra 3 -->
-  <g class="fish-3">
-    <rect x="-10" y="-3" width="20" height="6" fill="#0f172a" />
-    <rect x="-5" y="-3" width="15" height="2" fill="#22d3ee" />
-    <rect x="-6" y="1" width="12" height="2" fill="#fb7185" />
-    <rect x="-13" y="-5" width="3" height="3" fill="#38bdf8" />
-    <rect x="-13" y="3" width="3" height="3" fill="#38bdf8" />
-    <rect x="5" y="-2" width="2" height="2" fill="#ffffff" />
-  </g>
-  <!-- 🐟 Neon Tetra 4 -->
-  <g class="fish-4">
-    <rect x="-10" y="-3" width="20" height="6" fill="#0f172a" />
-    <rect x="-5" y="-3" width="15" height="2" fill="#a855f7" />
-    <rect x="-6" y="1" width="12" height="2" fill="#ec4899" />
-    <rect x="-13" y="-5" width="3" height="3" fill="#38bdf8" />
-    <rect x="-13" y="3" width="3" height="3" fill="#38bdf8" />
-    <rect x="5" y="-2" width="2" height="2" fill="#ffffff" />
-  </g>
-  <!-- 🐟 Neon Tetra 5 -->
-  <g class="fish-5">
+  <g class="tetra-2">
     <rect x="-10" y="-3" width="20" height="6" fill="#0f172a" />
     <rect x="-5" y="-3" width="15" height="2" fill="#10b981" />
     <rect x="-6" y="1" width="12" height="2" fill="#f59e0b" />
@@ -204,20 +204,20 @@
     <rect x="-13" y="3" width="3" height="3" fill="#38bdf8" />
     <rect x="5" y="-2" width="2" height="2" fill="#ffffff" />
   </g>
-  <!-- 🐟 Neon Tetra 6 -->
-  <g class="fish-6">
+  <!-- 🐟 Neon Tetra 3 -->
+  <g class="tetra-3">
     <rect x="-10" y="-3" width="20" height="6" fill="#0f172a" />
-    <rect x="-5" y="-3" width="15" height="2" fill="#00f0ff" />
-    <rect x="-6" y="1" width="12" height="2" fill="#3b82f6" />
+    <rect x="-5" y="-3" width="15" height="2" fill="#a855f7" />
+    <rect x="-6" y="1" width="12" height="2" fill="#ec4899" />
     <rect x="-13" y="-5" width="3" height="3" fill="#38bdf8" />
     <rect x="-13" y="3" width="3" height="3" fill="#38bdf8" />
     <rect x="5" y="-2" width="2" height="2" fill="#ffffff" />
   </g>
-  <!-- 🐟 Neon Tetra 7 -->
-  <g class="fish-7">
+  <!-- 🐟 Neon Tetra 4 -->
+  <g class="tetra-4">
     <rect x="-10" y="-3" width="20" height="6" fill="#0f172a" />
-    <rect x="-5" y="-3" width="15" height="2" fill="#f43f5e" />
-    <rect x="-6" y="1" width="12" height="2" fill="#fbbf24" />
+    <rect x="-5" y="-3" width="15" height="2" fill="#38bdf8" />
+    <rect x="-6" y="1" width="12" height="2" fill="#f43f5e" />
     <rect x="-13" y="-5" width="3" height="3" fill="#38bdf8" />
     <rect x="-13" y="3" width="3" height="3" fill="#38bdf8" />
     <rect x="5" y="-2" width="2" height="2" fill="#ffffff" />
@@ -236,6 +236,6 @@
     <rect x="0" y="0" width="200" height="32" fill="#020617" stroke="#10b981" stroke-width="1.5" />
     <rect x="8" y="8" width="5" height="5" fill="#10b981" />
     <text x="18" y="15" font-family="'Courier New', monospace" font-size="8.5" font-weight="900" fill="#e2e8f0">30 COMMITS (7D)</text>
-    <text x="18" y="25" font-family="'Courier New', monospace" font-size="7.5" font-weight="700" fill="#38bdf8">7 FISHES SWIMMING</text>
+    <text x="18" y="25" font-family="'Courier New', monospace" font-size="7.5" font-weight="700" fill="#38bdf8">7 CREATURES SWIMMING</text>
   </g>
 </svg>
