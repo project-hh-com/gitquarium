@@ -95,18 +95,23 @@ def generate_pixel_svg(stats, w=850, h=180):
     styles = []
     elements = []
 
-    # 1. 🐡 Bug Pufferfish (복어) - swims mid-depth, chubby & cute
+    # 1. 🐡 Bug Pufferfish (복어) - chubby buoyant waddling & bouncing sine waves
     styles.append(f"""    @keyframes pufferTrack {{
-      0%   {{ transform: translate(60px, {int(h*0.35)}px) scale(1, 1); }}
-      49%  {{ transform: translate({w - 110}px, {int(h*0.30)}px) scale(1, 1); }}
-      50%  {{ transform: translate({w - 110}px, {int(h*0.30)}px) scale(-1, 1); }}
-      99%  {{ transform: translate(60px, {int(h*0.38)}px) scale(-1, 1); }}
-      100% {{ transform: translate(60px, {int(h*0.35)}px) scale(1, 1); }}
+      0%   {{ transform: translate(70px, {int(h*0.42)}px) scale(1, 1); }}
+      15%  {{ transform: translate(220px, {int(h*0.25)}px) scale(1, 1); }}
+      30%  {{ transform: translate(380px, {int(h*0.52)}px) scale(1, 1); }}
+      42%  {{ transform: translate(540px, {int(h*0.28)}px) scale(1, 1); }}
+      49%  {{ transform: translate({w - 110}px, {int(h*0.45)}px) scale(1, 1); }}
+      50%  {{ transform: translate({w - 110}px, {int(h*0.45)}px) scale(-1, 1); }}
+      65%  {{ transform: translate(560px, {int(h*0.60)}px) scale(-1, 1); }}
+      78%  {{ transform: translate(390px, {int(h*0.26)}px) scale(-1, 1); }}
+      90%  {{ transform: translate(210px, {int(h*0.50)}px) scale(-1, 1); }}
+      100% {{ transform: translate(70px, {int(h*0.42)}px) scale(1, 1); }}
     }}
-    .creature-puffer {{ animation: pufferTrack 21s steps(60) infinite 1s; }}""")
+    .creature-puffer {{ animation: pufferTrack 21s ease-in-out infinite 0.5s; }}""")
 
     elements.append(f"""  <!-- 🐡 Bug Pufferfish -->
-  <g class="creature-puffer">
+  <g class="creature-puffer" transform="translate(70, {int(h*0.42)})">
     <rect x="-8" y="-6" width="16" height="12" fill="#f59e0b" />
     <rect x="-6" y="-8" width="12" height="16" fill="#f59e0b" />
     <rect x="-4" y="2" width="8" height="4" fill="#fef3c7" />
@@ -117,18 +122,23 @@ def generate_pixel_svg(stats, w=850, h=180):
     <rect x="-1" y="8" width="3" height="2" fill="#d97706" />
   </g>""")
 
-    # 2. ⚡ React Ray (가오리) - glides gracefully at upper-mid depth
+    # 2. ⚡ React Ray (가오리) - wide diagonal swoops & altitude glides
     styles.append(f"""    @keyframes rayTrack {{
-      0%   {{ transform: translate({w - 120}px, {int(h*0.52)}px) scale(-1, 1); }}
-      49%  {{ transform: translate(70px, {int(h*0.48)}px) scale(-1, 1); }}
-      50%  {{ transform: translate(70px, {int(h*0.48)}px) scale(1, 1); }}
-      99%  {{ transform: translate({w - 120}px, {int(h*0.56)}px) scale(1, 1); }}
-      100% {{ transform: translate({w - 120}px, {int(h*0.52)}px) scale(-1, 1); }}
+      0%   {{ transform: translate({w - 120}px, {int(h*0.28)}px) scale(-1, 1); }}
+      16%  {{ transform: translate(540px, {int(h*0.64)}px) scale(-1, 1); }}
+      30%  {{ transform: translate(360px, {int(h*0.35)}px) scale(-1, 1); }}
+      42%  {{ transform: translate(200px, {int(h*0.62)}px) scale(-1, 1); }}
+      49%  {{ transform: translate(80px, {int(h*0.48)}px) scale(-1, 1); }}
+      50%  {{ transform: translate(80px, {int(h*0.48)}px) scale(1, 1); }}
+      66%  {{ transform: translate(280px, {int(h*0.26)}px) scale(1, 1); }}
+      80%  {{ transform: translate(490px, {int(h*0.58)}px) scale(1, 1); }}
+      92%  {{ transform: translate(650px, {int(h*0.38)}px) scale(1, 1); }}
+      100% {{ transform: translate({w - 120}px, {int(h*0.28)}px) scale(-1, 1); }}
     }}
-    .creature-ray {{ animation: rayTrack 18s steps(60) infinite 3s; }}""")
+    .creature-ray {{ animation: rayTrack 19s ease-in-out infinite 2s; }}""")
 
     elements.append(f"""  <!-- ⚡ React Ray -->
-  <g class="creature-ray">
+  <g class="creature-ray" transform="translate({w - 120}, {int(h*0.28)})">
     <polygon points="0,-7 14,0 0,7 -10,0" fill="#0284c7" />
     <polygon points="-2,-4 8,0 -2,4 -6,0" fill="#38bdf8" />
     <circle cx="4" cy="-2" r="1.2" fill="#ffffff" />
@@ -136,18 +146,23 @@ def generate_pixel_svg(stats, w=850, h=180):
     <line x1="-10" y1="0" x2="-22" y2="0" stroke="#38bdf8" stroke-width="1.5" />
   </g>""")
 
-    # 3. 🏮 Nightshift Anglerfish (야근 아귀) - deep sea prowler with glowing yellow lantern
+    # 3. 🏮 Nightshift Anglerfish (야근 아귀) - deep sea prowler with bobbing lantern
     styles.append(f"""    @keyframes anglerTrack {{
-      0%   {{ transform: translate(80px, {int(h*0.68)}px) scale(1, 1); }}
-      49%  {{ transform: translate({w - 130}px, {int(h*0.72)}px) scale(1, 1); }}
-      50%  {{ transform: translate({w - 130}px, {int(h*0.72)}px) scale(-1, 1); }}
-      99%  {{ transform: translate(80px, {int(h*0.65)}px) scale(-1, 1); }}
-      100% {{ transform: translate(80px, {int(h*0.68)}px) scale(1, 1); }}
+      0%   {{ transform: translate(80px, {int(h*0.69)}px) scale(1, 1); }}
+      18%  {{ transform: translate(240px, {int(h*0.58)}px) scale(1, 1); }}
+      32%  {{ transform: translate(430px, {int(h*0.73)}px) scale(1, 1); }}
+      45%  {{ transform: translate(620px, {int(h*0.62)}px) scale(1, 1); }}
+      49%  {{ transform: translate({w - 130}px, {int(h*0.71)}px) scale(1, 1); }}
+      50%  {{ transform: translate({w - 130}px, {int(h*0.71)}px) scale(-1, 1); }}
+      66%  {{ transform: translate(510px, {int(h*0.58)}px) scale(-1, 1); }}
+      80%  {{ transform: translate(300px, {int(h*0.72)}px) scale(-1, 1); }}
+      94%  {{ transform: translate(140px, {int(h*0.62)}px) scale(-1, 1); }}
+      100% {{ transform: translate(80px, {int(h*0.69)}px) scale(1, 1); }}
     }}
-    .creature-angler {{ animation: anglerTrack 24s steps(60) infinite 5s; }}""")
+    .creature-angler {{ animation: anglerTrack 24s ease-in-out infinite 3.5s; }}""")
 
     elements.append(f"""  <!-- 🏮 Nightshift Anglerfish -->
-  <g class="creature-angler">
+  <g class="creature-angler" transform="translate(80, {int(h*0.69)})">
     <ellipse cx="0" cy="0" rx="9" ry="6" fill="#4c1d95" />
     <rect x="4" y="-2" width="2" height="2" fill="#ffffff" />
     <path d="M 2 -5 Q 6 -11 9 -8" stroke="#a78bfa" stroke-width="1.5" fill="none" />
@@ -155,31 +170,36 @@ def generate_pixel_svg(stats, w=850, h=180):
     <polygon points="-9,0 -14,-4 -14,4" fill="#5b21b6" />
   </g>""")
 
-    # 4~7. 🐟 Agile Neon Tetras (4 colors, varied depths & speeds)
+    # 4~7. 🐟 Agile Neon Tetras (4 colors, varied diagonal & undulating paths)
     tetras = [
-        (int(h*0.28), 13, 0.0, '#00f0ff', '#ff0055', False),
-        (int(h*0.60), 16, 4.0, '#10b981', '#f59e0b', True),
-        (int(h*0.42), 15, 6.5, '#a855f7', '#ec4899', False),
-        (int(h*0.75), 19, 2.5, '#38bdf8', '#f43f5e', True)
+        # (ty_base, dur, delay, c1, c2, rev, y_offsets)
+        (int(h*0.30), 14, 0.0, '#00f0ff', '#ff0055', False, (-12, 14, -8)),
+        (int(h*0.58), 16, 3.5, '#10b981', '#f59e0b', True, (16, -14, 10)),
+        (int(h*0.42), 15, 6.0, '#a855f7', '#ec4899', False, (14, -16, 12)),
+        (int(h*0.74), 18, 2.0, '#38bdf8', '#f43f5e', True, (-14, 12, -10))
     ]
 
-    for idx, (ty, dur, delay, c1, c2, rev) in enumerate(tetras, start=1):
+    for idx, (ty, dur, delay, c1, c2, rev, (dy1, dy2, dy3)) in enumerate(tetras, start=1):
         sx = -1 if rev else 1
         x1 = w - 110 if rev else 50
         x2 = 60 if rev else w - 110
-        yw = 4 if idx % 2 == 0 else -4
+        mid1 = int(x1 + (x2 - x1) * 0.33)
+        mid2 = int(x1 + (x2 - x1) * 0.66)
 
         styles.append(f"""    @keyframes tetraTrack{idx} {{
       0%   {{ transform: translate({x1}px, {ty}px) scale({sx}, 1); }}
-      49%  {{ transform: translate({x2}px, {ty + yw}px) scale({sx}, 1); }}
-      50%  {{ transform: translate({x2}px, {ty + yw}px) scale({-sx}, 1); }}
-      99%  {{ transform: translate({x1}px, {ty - yw}px) scale({-sx}, 1); }}
+      20%  {{ transform: translate({mid1}px, {ty + dy1}px) scale({sx}, 1); }}
+      36%  {{ transform: translate({mid2}px, {ty + dy2}px) scale({sx}, 1); }}
+      49%  {{ transform: translate({x2}px, {ty + dy3}px) scale({sx}, 1); }}
+      50%  {{ transform: translate({x2}px, {ty + dy3}px) scale({-sx}, 1); }}
+      70%  {{ transform: translate({mid2}px, {ty - dy1}px) scale({-sx}, 1); }}
+      85%  {{ transform: translate({mid1}px, {ty - dy2}px) scale({-sx}, 1); }}
       100% {{ transform: translate({x1}px, {ty}px) scale({sx}, 1); }}
     }}
-    .tetra-{idx} {{ animation: tetraTrack{idx} {dur}s steps(50) infinite {delay}s; }}""")
+    .tetra-{idx} {{ animation: tetraTrack{idx} {dur}s ease-in-out infinite {delay}s; }}""")
 
         elements.append(f"""  <!-- 🐟 Neon Tetra {idx} -->
-  <g class="tetra-{idx}">
+  <g class="tetra-{idx}" transform="translate({x1}, {ty})">
     <rect x="-10" y="-3" width="20" height="6" fill="#0f172a" />
     <rect x="-5" y="-3" width="15" height="2" fill="{c1}" />
     <rect x="-6" y="1" width="12" height="2" fill="{c2}" />
@@ -220,13 +240,15 @@ def generate_pixel_svg(stats, w=850, h=180):
     }}
     /* 🪼 TS Jellyfish Roaming and Propulsion Animation */
     @keyframes pixelJellyRoam {{
-      0%   {{ transform: translate({center_x - 45}px, {jelly_y}px); }}
-      25%  {{ transform: translate({center_x - 15}px, {jelly_y - 20}px); }}
-      50%  {{ transform: translate({center_x + 40}px, {jelly_y - 8}px); }}
-      75%  {{ transform: translate({center_x + 10}px, {jelly_y + 14}px); }}
-      100% {{ transform: translate({center_x - 45}px, {jelly_y}px); }}
+      0%   {{ transform: translate({center_x - 50}px, {jelly_y}px); }}
+      20%  {{ transform: translate({center_x - 10}px, {jelly_y - 24}px); }}
+      35%  {{ transform: translate({center_x + 35}px, {jelly_y - 12}px); }}
+      55%  {{ transform: translate({center_x + 65}px, {jelly_y + 18}px); }}
+      70%  {{ transform: translate({center_x + 20}px, {jelly_y + 26}px); }}
+      85%  {{ transform: translate({center_x - 25}px, {jelly_y + 8}px); }}
+      100% {{ transform: translate({center_x - 50}px, {jelly_y}px); }}
     }}
-    .jelly-roam {{ animation: pixelJellyRoam 8s steps(60) infinite ease-in-out; }}
+    .jelly-roam {{ animation: pixelJellyRoam 9s ease-in-out infinite; }}
     .pb1 {{ animation: pixelBubble 4s steps(15) infinite; }}
     .pb2 {{ animation: pixelBubble 5.2s steps(15) infinite 1.2s; }}
     .pb3 {{ animation: pixelBubble 4.6s steps(15) infinite 2.5s; }}
@@ -275,7 +297,7 @@ def generate_pixel_svg(stats, w=850, h=180):
   </g>
 
   <!-- 🪼 TypeScript Jellyfish (Smooth Roaming and Propelling) -->
-  <g class="jelly-roam">
+  <g class="jelly-roam" transform="translate({center_x - 50}, {jelly_y})">
     <rect x="-20" y="-6" width="40" height="12" fill="#0284c7" />
     <rect x="-16" y="-12" width="32" height="6" fill="#0284c7" />
     <rect x="-10" y="-16" width="20" height="4" fill="#38bdf8" />
