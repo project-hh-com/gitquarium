@@ -218,17 +218,17 @@ def generate_vector_svg(stats, w=850, h=340):
 
     /* 🐡 Vector Bug Pufferfish: Chubby Bobbing Across Mid-Upper Tank */
     .vec-puffer {{
-      animation: vecPufferSwim 24s ease-in-out infinite;
+      animation: vecPufferSwim 24s ease-in-out infinite -7s;
     }}
     @keyframes vecPufferSwim {{
       0% {{
         transform: translate(-35px, 95px) scale(1, 1);
       }}
       48% {{
-        transform: translate({{w + 35}}px, 125px) scale(1, 1);
+        transform: translate({w_out_35}px, 125px) scale(1, 1);
       }}
       50% {{
-        transform: translate({{w + 35}}px, 125px) scale(-1, 1);
+        transform: translate({w_out_35}px, 125px) scale(-1, 1);
       }}
       98% {{
         transform: translate(-35px, 110px) scale(-1, 1);
@@ -248,11 +248,11 @@ def generate_vector_svg(stats, w=850, h=340):
 
     /* ⚡ Vector React Ray: Gliding with Wing Flaps Across Mid Depth */
     .vec-ray {{
-      animation: vecRaySwim 28s ease-in-out infinite;
+      animation: vecRaySwim 28s ease-in-out infinite -12s;
     }}
     @keyframes vecRaySwim {{
       0% {{
-        transform: translate({{w + 35}}px, 165px) scale(-1, 1);
+        transform: translate({w_out_35}px, 165px) scale(-1, 1);
       }}
       48% {{
         transform: translate(-35px, 185px) scale(-1, 1);
@@ -261,10 +261,10 @@ def generate_vector_svg(stats, w=850, h=340):
         transform: translate(-35px, 185px) scale(1, 1);
       }}
       98% {{
-        transform: translate({{w + 35}}px, 155px) scale(1, 1);
+        transform: translate({w_out_35}px, 155px) scale(1, 1);
       }}
       100% {{
-        transform: translate({{w + 35}}px, 165px) scale(-1, 1);
+        transform: translate({w_out_35}px, 165px) scale(-1, 1);
       }}
     }}
     .vec-ray-wings {{
@@ -278,17 +278,17 @@ def generate_vector_svg(stats, w=850, h=340):
 
     /* 🏮 Vector Anglerfish: Deep-Sea Cruise with Glowing Lantern */
     .vec-angler {{
-      animation: vecAnglerSwim 32s linear infinite;
+      animation: vecAnglerSwim 32s linear infinite -16s;
     }}
     @keyframes vecAnglerSwim {{
       0% {{
         transform: translate(-40px, 245px) scale(1, 1);
       }}
       48% {{
-        transform: translate({{w + 40}}px, 255px) scale(1, 1);
+        transform: translate({w_out_40}px, 255px) scale(1, 1);
       }}
       50% {{
-        transform: translate({{w + 40}}px, 255px) scale(-1, 1);
+        transform: translate({w_out_40}px, 255px) scale(-1, 1);
       }}
       98% {{
         transform: translate(-40px, 235px) scale(-1, 1);
@@ -307,34 +307,34 @@ def generate_vector_svg(stats, w=850, h=340):
 
     /* 🐟 Vector Neon Tetras (4 fishes with staggered depths) */
     .vec-tetra-1 {{
-      animation: vecTetra1 17s linear infinite;
+      animation: vecTetra1 17s linear infinite -4s;
     }}
     @keyframes vecTetra1 {{
       0% {{ transform: translate(-30px, 75px) scale(1, 1); }}
-      48% {{ transform: translate({{w + 30}}px, 105px) scale(1, 1); }}
-      50% {{ transform: translate({{w + 30}}px, 105px) scale(-1, 1); }}
+      48% {{ transform: translate({w_out_30}px, 105px) scale(1, 1); }}
+      50% {{ transform: translate({w_out_30}px, 105px) scale(-1, 1); }}
       98% {{ transform: translate(-30px, 85px) scale(-1, 1); }}
       100% {{ transform: translate(-30px, 75px) scale(1, 1); }}
     }}
 
     .vec-tetra-2 {{
-      animation: vecTetra2 20s linear infinite;
+      animation: vecTetra2 20s linear infinite -9s;
     }}
     @keyframes vecTetra2 {{
-      0% {{ transform: translate({{w + 30}}px, 130px) scale(-1, 1); }}
+      0% {{ transform: translate({w_out_30}px, 130px) scale(-1, 1); }}
       48% {{ transform: translate(-30px, 150px) scale(-1, 1); }}
       50% {{ transform: translate(-30px, 150px) scale(1, 1); }}
-      98% {{ transform: translate({{w + 30}}px, 120px) scale(1, 1); }}
-      100% {{ transform: translate({{w + 30}}px, 130px) scale(-1, 1); }}
+      98% {{ transform: translate({w_out_30}px, 120px) scale(1, 1); }}
+      100% {{ transform: translate({w_out_30}px, 130px) scale(-1, 1); }}
     }}
 
     .vec-tetra-3 {{
-      animation: vecTetra3 15s linear infinite;
+      animation: vecTetra3 15s linear infinite -6s;
     }}
     @keyframes vecTetra3 {{
       0% {{ transform: translate(-30px, 200px) scale(0.9, 0.9); }}
-      48% {{ transform: translate({{w + 30}}px, 185px) scale(0.9, 0.9); }}
-      50% {{ transform: translate({{w + 30}}px, 185px) scale(-0.9, 0.9); }}
+      48% {{ transform: translate({w_out_30}px, 185px) scale(0.9, 0.9); }}
+      50% {{ transform: translate({w_out_30}px, 185px) scale(-0.9, 0.9); }}
       98% {{ transform: translate(-30px, 215px) scale(-0.9, 0.9); }}
       100% {{ transform: translate(-30px, 200px) scale(0.9, 0.9); }}
     }}
@@ -354,14 +354,14 @@ def generate_vector_svg(stats, w=850, h=340):
     .vec-stat-view-b {{ animation: statCycleB 7s ease-in-out infinite; }}
 
     .vec-tetra-4 {{
-      animation: vecTetra4 23s linear infinite;
+      animation: vecTetra4 23s linear infinite -14s;
     }}
     @keyframes vecTetra4 {{
-      0% {{ transform: translate({{w + 30}}px, 270px) scale(-0.85, 0.85); }}
+      0% {{ transform: translate({w_out_30}px, 270px) scale(-0.85, 0.85); }}
       48% {{ transform: translate(-30px, 255px) scale(-0.85, 0.85); }}
       50% {{ transform: translate(-30px, 255px) scale(0.85, 0.85); }}
-      98% {{ transform: translate({{w + 30}}px, 280px) scale(0.85, 0.85); }}
-      100% {{ transform: translate({{w + 30}}px, 270px) scale(-0.85, 0.85); }}
+      98% {{ transform: translate({w_out_30}px, 280px) scale(0.85, 0.85); }}
+      100% {{ transform: translate({w_out_30}px, 270px) scale(-0.85, 0.85); }}
     }}
   ]]>
   </style>
