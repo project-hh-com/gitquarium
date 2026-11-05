@@ -78,6 +78,9 @@ def generate_vector_svg(stats, w=850, h=340):
     user = stats["username"]
     commits = stats["commit_count"]
     hud_r_x = max(w - 216, 220)
+    w_out_35 = w + 35
+    w_out_40 = w + 40
+    w_out_30 = w + 30
 
     return f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {w} {h}" width="100%" height="100%">
   <defs>
@@ -336,6 +339,20 @@ def generate_vector_svg(stats, w=850, h=340):
       100% {{ transform: translate(-30px, 200px) scale(0.9, 0.9); }}
     }}
 
+    /* Cycling Stats Animation (Commit count <-> Species Breakdown) */
+    @keyframes statCycleA {{
+      0%, 45%   {{ opacity: 1; }}
+      50%, 95%  {{ opacity: 0; }}
+      100%      {{ opacity: 1; }}
+    }}
+    @keyframes statCycleB {{
+      0%, 45%   {{ opacity: 0; }}
+      50%, 95%  {{ opacity: 1; }}
+      100%      {{ opacity: 0; }}
+    }}
+    .vec-stat-view-a {{ animation: statCycleA 7s ease-in-out infinite; }}
+    .vec-stat-view-b {{ animation: statCycleB 7s ease-in-out infinite; }}
+
     .vec-tetra-4 {{
       animation: vecTetra4 23s linear infinite;
     }}
@@ -551,12 +568,18 @@ def generate_vector_svg(stats, w=850, h=340):
     <text x="14" y="34" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9.5" font-weight="600" fill="#38bdf8">@{user}'s Tank · Neon Deep-Sea</text>
   </g>
 
-  <!-- HUD: Top Right Stats -->
+  <!-- HUD: Top Right Stats (Cycles between Commits & Species Breakdown) -->
   <g transform="translate({hud_r_x}, 18)">
-    <rect width="196" height="42" rx="10" fill="#090d1a" fill-opacity="0.82" stroke="#1e293b" stroke-width="1.2" />
-    <circle cx="16" cy="21" r="4" fill="#10b981" />
-    <text x="26" y="19" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10.5" font-weight="700" fill="#e2e8f0">{commits} Commits (7d)</text>
-    <text x="26" y="32" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" font-weight="600" fill="#38bdf8">7 Creatures Swimming</text>
+    <rect width="204" height="42" rx="10" fill="#090d1a" fill-opacity="0.85" stroke="#1e293b" stroke-width="1.2" />
+    <g class="vec-stat-view-a">
+      <circle cx="16" cy="21" r="4" fill="#10b981" />
+      <text x="26" y="19" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10.5" font-weight="700" fill="#e2e8f0">{commits} Commits (7d)</text>
+      <text x="26" y="32" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" font-weight="600" fill="#38bdf8">7 Creatures Swimming</text>
+    </g>
+    <g class="vec-stat-view-b">
+      <text x="16" y="19" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="800" fill="#f8fafc">🐡1 · ⚡1 · 🏮1</text>
+      <text x="16" y="32" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" font-weight="700" fill="#38bdf8">🪼1 TS · 🐟3 Tetras</text>
+    </g>
   </g>
 
   <!-- Watermark Bottom Right -->
@@ -577,6 +600,9 @@ def generate_pixel_svg(stats, w=850, h=340):
     sand_top = h - 34
     sand_base = h - 22
     hud_r_x = max(w - 210, 220)
+    w_out_35 = w + 35
+    w_out_40 = w + 40
+    w_out_30 = w + 30
     center_x = w // 2
     jelly_y = int(h * 0.42)
 
@@ -589,8 +615,8 @@ def generate_pixel_svg(stats, w=850, h=340):
       15%  {{ transform: translate(190px, {int(h*0.22)}px) scale(1, 1); }}
       30%  {{ transform: translate(420px, {int(h*0.48)}px) scale(1, 1); }}
       42%  {{ transform: translate(660px, {int(h*0.25)}px) scale(1, 1); }}
-      49%  {{ transform: translate({w + 35}px, {int(h*0.42)}px) scale(1, 1); }}
-      50%  {{ transform: translate({w + 35}px, {int(h*0.42)}px) scale(-1, 1); }}
+      49%  {{ transform: translate({w_out_35}px, {int(h*0.42)}px) scale(1, 1); }}
+      50%  {{ transform: translate({w_out_35}px, {int(h*0.42)}px) scale(-1, 1); }}
       65%  {{ transform: translate(640px, {int(h*0.55)}px) scale(-1, 1); }}
       78%  {{ transform: translate(410px, {int(h*0.24)}px) scale(-1, 1); }}
       90%  {{ transform: translate(170px, {int(h*0.46)}px) scale(-1, 1); }}
@@ -632,7 +658,7 @@ def generate_pixel_svg(stats, w=850, h=340):
 
     # 2. ⚡ React Ray (가오리)
     styles.append(f"""    @keyframes rayTrack {{
-      0%   {{ transform: translate({w + 40}px, {int(h*0.25)}px) scale(-1, 1); }}
+      0%   {{ transform: translate({w_out_40}px, {int(h*0.25)}px) scale(-1, 1); }}
       16%  {{ transform: translate(630px, {int(h*0.58)}px) scale(-1, 1); }}
       30%  {{ transform: translate(410px, {int(h*0.32)}px) scale(-1, 1); }}
       42%  {{ transform: translate(190px, {int(h*0.56)}px) scale(-1, 1); }}
@@ -641,7 +667,7 @@ def generate_pixel_svg(stats, w=850, h=340):
       66%  {{ transform: translate(260px, {int(h*0.22)}px) scale(1, 1); }}
       80%  {{ transform: translate(540px, {int(h*0.52)}px) scale(1, 1); }}
       92%  {{ transform: translate(750px, {int(h*0.34)}px) scale(1, 1); }}
-      100% {{ transform: translate({w + 40}px, {int(h*0.25)}px) scale(-1, 1); }}
+      100% {{ transform: translate({w_out_40}px, {int(h*0.25)}px) scale(-1, 1); }}
     }}
     .creature-ray {{ animation: rayTrack 21s ease-in-out infinite 2s; }}
     @keyframes rayWingFlap {{
@@ -733,8 +759,8 @@ def generate_pixel_svg(stats, w=850, h=340):
         styles.append(f"""    @keyframes tetraTrack{idx} {{
       0%   {{ transform: translate(-30px, {t['y']}px) scale(1, 1); }}
       25%  {{ transform: translate(240px, {t['y'] - 12}px) scale(1, 1); }}
-      49%  {{ transform: translate({w + 30}px, {t['y'] + 8}px) scale(1, 1); }}
-      50%  {{ transform: translate({w + 30}px, {t['y'] + 8}px) scale(-1, 1); }}
+      49%  {{ transform: translate({w_out_30}px, {t['y'] + 8}px) scale(1, 1); }}
+      50%  {{ transform: translate({w_out_30}px, {t['y'] + 8}px) scale(-1, 1); }}
       75%  {{ transform: translate(320px, {t['y'] + 15}px) scale(-1, 1); }}
       99%  {{ transform: translate(-30px, {t['y']}px) scale(-1, 1); }}
       100% {{ transform: translate(-30px, {t['y']}px) scale(1, 1); }}
