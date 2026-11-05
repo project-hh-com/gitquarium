@@ -108,18 +108,38 @@ def generate_pixel_svg(stats, w=850, h=180):
       90%  {{ transform: translate(210px, {int(h*0.50)}px) scale(-1, 1); }}
       100% {{ transform: translate(70px, {int(h*0.42)}px) scale(1, 1); }}
     }}
-    .creature-puffer {{ animation: pufferTrack 21s ease-in-out infinite 0.5s; }}""")
+    .creature-puffer {{ animation: pufferTrack 21s ease-in-out infinite 0.5s; }}
+    @keyframes pufferTailWag {{
+      0%, 100% {{ transform: scaleX(1); }}
+      50% {{ transform: scaleX(0.2); }}
+    }}
+    .puffer-tail {{
+      transform-origin: -8px 0px;
+      animation: pufferTailWag 0.35s ease-in-out infinite;
+    }}
+    @keyframes pufferPulse {{
+      0%, 100% {{ transform: scale(1, 1); }}
+      50% {{ transform: scale(1.08, 1.08); }}
+    }}
+    .puffer-body {{
+      transform-origin: 0px 0px;
+      animation: pufferPulse 2.5s ease-in-out infinite;
+    }}""")
 
     elements.append(f"""  <!-- 🐡 Bug Pufferfish -->
   <g class="creature-puffer" transform="translate(70, {int(h*0.42)})">
-    <rect x="-8" y="-6" width="16" height="12" fill="#f59e0b" />
-    <rect x="-6" y="-8" width="12" height="16" fill="#f59e0b" />
-    <rect x="-4" y="2" width="8" height="4" fill="#fef3c7" />
-    <rect x="4" y="-4" width="3" height="3" fill="#ffffff" />
-    <rect x="5" y="-3" width="2" height="2" fill="#000000" />
-    <rect x="-11" y="-3" width="3" height="6" fill="#d97706" />
-    <rect x="-1" y="-10" width="3" height="2" fill="#d97706" />
-    <rect x="-1" y="8" width="3" height="2" fill="#d97706" />
+    <g class="puffer-body">
+      <rect x="-8" y="-6" width="16" height="12" fill="#f59e0b" />
+      <rect x="-6" y="-8" width="12" height="16" fill="#f59e0b" />
+      <rect x="-4" y="2" width="8" height="4" fill="#fef3c7" />
+      <rect x="4" y="-4" width="3" height="3" fill="#ffffff" />
+      <rect x="5" y="-3" width="2" height="2" fill="#000000" />
+      <rect x="-1" y="-10" width="3" height="2" fill="#d97706" />
+      <rect x="-1" y="8" width="3" height="2" fill="#d97706" />
+    </g>
+    <g class="puffer-tail">
+      <rect x="-11" y="-3" width="3" height="6" fill="#d97706" />
+    </g>
   </g>""")
 
     # 2. ⚡ React Ray (가오리) - wide diagonal swoops & altitude glides
@@ -135,15 +155,35 @@ def generate_pixel_svg(stats, w=850, h=180):
       92%  {{ transform: translate(650px, {int(h*0.38)}px) scale(1, 1); }}
       100% {{ transform: translate({w - 120}px, {int(h*0.28)}px) scale(-1, 1); }}
     }}
-    .creature-ray {{ animation: rayTrack 19s ease-in-out infinite 2s; }}""")
+    .creature-ray {{ animation: rayTrack 19s ease-in-out infinite 2s; }}
+    @keyframes rayWingFlap {{
+      0%, 100% {{ transform: scaleY(1); }}
+      50% {{ transform: scaleY(0.42); }}
+    }}
+    .ray-wings {{
+      transform-origin: 0px 0px;
+      animation: rayWingFlap 0.9s ease-in-out infinite;
+    }}
+    @keyframes rayTailWave {{
+      0%, 100% {{ transform: rotate(-8deg); }}
+      50% {{ transform: rotate(8deg); }}
+    }}
+    .ray-tail {{
+      transform-origin: -10px 0px;
+      animation: rayTailWave 0.9s ease-in-out infinite 0.2s;
+    }}""")
 
     elements.append(f"""  <!-- ⚡ React Ray -->
   <g class="creature-ray" transform="translate({w - 120}, {int(h*0.28)})">
-    <polygon points="0,-7 14,0 0,7 -10,0" fill="#0284c7" />
-    <polygon points="-2,-4 8,0 -2,4 -6,0" fill="#38bdf8" />
-    <circle cx="4" cy="-2" r="1.2" fill="#ffffff" />
-    <circle cx="4" cy="2" r="1.2" fill="#ffffff" />
-    <line x1="-10" y1="0" x2="-22" y2="0" stroke="#38bdf8" stroke-width="1.5" />
+    <g class="ray-wings">
+      <polygon points="0,-7 14,0 0,7 -10,0" fill="#0284c7" />
+      <polygon points="-2,-4 8,0 -2,4 -6,0" fill="#38bdf8" />
+      <circle cx="4" cy="-2" r="1.2" fill="#ffffff" />
+      <circle cx="4" cy="2" r="1.2" fill="#ffffff" />
+    </g>
+    <g class="ray-tail">
+      <line x1="-10" y1="0" x2="-22" y2="0" stroke="#38bdf8" stroke-width="1.5" />
+    </g>
   </g>""")
 
     # 3. 🏮 Nightshift Anglerfish (야근 아귀) - deep sea prowler with bobbing lantern
@@ -159,27 +199,47 @@ def generate_pixel_svg(stats, w=850, h=180):
       94%  {{ transform: translate(140px, {int(h*0.62)}px) scale(-1, 1); }}
       100% {{ transform: translate(80px, {int(h*0.69)}px) scale(1, 1); }}
     }}
-    .creature-angler {{ animation: anglerTrack 24s ease-in-out infinite 3.5s; }}""")
+    .creature-angler {{ animation: anglerTrack 24s ease-in-out infinite 3.5s; }}
+    @keyframes anglerTailWag {{
+      0%, 100% {{ transform: scaleX(1); }}
+      50% {{ transform: scaleX(0.25); }}
+    }}
+    .angler-tail {{
+      transform-origin: -9px 0px;
+      animation: anglerTailWag 0.55s ease-in-out infinite;
+    }}
+    @keyframes lanternBob {{
+      0%, 100% {{ transform: translateY(0) rotate(0deg); opacity: 1; }}
+      50% {{ transform: translateY(-3px) rotate(6deg); opacity: 0.8; }}
+    }}
+    .angler-lantern {{
+      transform-origin: 2px -5px;
+      animation: lanternBob 1.6s ease-in-out infinite;
+    }}""")
 
     elements.append(f"""  <!-- 🏮 Nightshift Anglerfish -->
   <g class="creature-angler" transform="translate(80, {int(h*0.69)})">
     <ellipse cx="0" cy="0" rx="9" ry="6" fill="#4c1d95" />
     <rect x="4" y="-2" width="2" height="2" fill="#ffffff" />
-    <path d="M 2 -5 Q 6 -11 9 -8" stroke="#a78bfa" stroke-width="1.5" fill="none" />
-    <circle cx="9" cy="-8" r="2.5" fill="#fef08a" />
-    <polygon points="-9,0 -14,-4 -14,4" fill="#5b21b6" />
+    <g class="angler-tail">
+      <polygon points="-9,0 -14,-4 -14,4" fill="#5b21b6" />
+    </g>
+    <g class="angler-lantern">
+      <path d="M 2 -5 Q 6 -11 9 -8" stroke="#a78bfa" stroke-width="1.5" fill="none" />
+      <circle cx="9" cy="-8" r="2.5" fill="#fef08a" />
+    </g>
   </g>""")
 
     # 4~7. 🐟 Agile Neon Tetras (4 colors, varied diagonal & undulating paths)
     tetras = [
-        # (ty_base, dur, delay, c1, c2, rev, y_offsets)
-        (int(h*0.30), 14, 0.0, '#00f0ff', '#ff0055', False, (-12, 14, -8)),
-        (int(h*0.58), 16, 3.5, '#10b981', '#f59e0b', True, (16, -14, 10)),
-        (int(h*0.42), 15, 6.0, '#a855f7', '#ec4899', False, (14, -16, 12)),
-        (int(h*0.74), 18, 2.0, '#38bdf8', '#f43f5e', True, (-14, 12, -10))
+        # (ty_base, dur, delay, c1, c2, rev, y_offsets, tail_speed)
+        (int(h*0.30), 14, 0.0, '#00f0ff', '#ff0055', False, (-12, 14, -8), 0.22),
+        (int(h*0.58), 16, 3.5, '#10b981', '#f59e0b', True, (16, -14, 10), 0.28),
+        (int(h*0.42), 15, 6.0, '#a855f7', '#ec4899', False, (14, -16, 12), 0.25),
+        (int(h*0.74), 18, 2.0, '#38bdf8', '#f43f5e', True, (-14, 12, -10), 0.30)
     ]
 
-    for idx, (ty, dur, delay, c1, c2, rev, (dy1, dy2, dy3)) in enumerate(tetras, start=1):
+    for idx, (ty, dur, delay, c1, c2, rev, (dy1, dy2, dy3), tail_speed) in enumerate(tetras, start=1):
         sx = -1 if rev else 1
         x1 = w - 110 if rev else 50
         x2 = 60 if rev else w - 110
@@ -196,16 +256,26 @@ def generate_pixel_svg(stats, w=850, h=180):
       85%  {{ transform: translate({mid1}px, {ty - dy2}px) scale({-sx}, 1); }}
       100% {{ transform: translate({x1}px, {ty}px) scale({sx}, 1); }}
     }}
-    .tetra-{idx} {{ animation: tetraTrack{idx} {dur}s ease-in-out infinite {delay}s; }}""")
+    .tetra-{idx} {{ animation: tetraTrack{idx} {dur}s ease-in-out infinite {delay}s; }}
+    @keyframes tetraTailWag{idx} {{
+      0%, 100% {{ transform: scaleX(1); }}
+      50% {{ transform: scaleX(0.18); }}
+    }}
+    .tetra-tail-{idx} {{
+      transform-origin: -10px 0px;
+      animation: tetraTailWag{idx} {tail_speed}s ease-in-out infinite;
+    }}""")
 
         elements.append(f"""  <!-- 🐟 Neon Tetra {idx} -->
   <g class="tetra-{idx}" transform="translate({x1}, {ty})">
     <rect x="-10" y="-3" width="20" height="6" fill="#0f172a" />
     <rect x="-5" y="-3" width="15" height="2" fill="{c1}" />
     <rect x="-6" y="1" width="12" height="2" fill="{c2}" />
-    <rect x="-13" y="-5" width="3" height="3" fill="#38bdf8" />
-    <rect x="-13" y="3" width="3" height="3" fill="#38bdf8" />
     <rect x="5" y="-2" width="2" height="2" fill="#ffffff" />
+    <g class="tetra-tail-{idx}">
+      <rect x="-13" y="-5" width="3" height="3" fill="#38bdf8" />
+      <rect x="-13" y="3" width="3" height="3" fill="#38bdf8" />
+    </g>
   </g>""")
 
     creature_styles = "\n".join(styles)
@@ -249,6 +319,42 @@ def generate_pixel_svg(stats, w=850, h=180):
       100% {{ transform: translate({center_x - 50}px, {jelly_y}px); }}
     }}
     .jelly-roam {{ animation: pixelJellyRoam 9s ease-in-out infinite; }}
+    @keyframes jellyBellPulse {{
+      0%, 100% {{ transform: scale(1, 1); }}
+      35% {{ transform: scale(0.92, 1.14); }}
+      65% {{ transform: scale(1.08, 0.88); }}
+    }}
+    .jelly-bell {{
+      transform-origin: 0px 0px;
+      animation: jellyBellPulse 1.8s ease-in-out infinite;
+    }}
+    @keyframes jellyLegsWaveL {{
+      0%, 100% {{ transform: rotate(0deg) skewX(0deg) scaleY(1); }}
+      40% {{ transform: rotate(-14deg) skewX(-10deg) scaleY(0.8); }}
+      75% {{ transform: rotate(8deg) skewX(8deg) scaleY(1.05); }}
+    }}
+    .jelly-legs-outer-l {{
+      transform-origin: -14px 9px;
+      animation: jellyLegsWaveL 1.8s ease-in-out infinite;
+    }}
+    @keyframes jellyLegsWaveMid {{
+      0%, 100% {{ transform: scaleY(1) skewX(0deg); }}
+      40% {{ transform: scaleY(0.72) skewX(6deg); }}
+      75% {{ transform: scaleY(1.12) skewX(-6deg); }}
+    }}
+    .jelly-legs-mid {{
+      transform-origin: 0px 9px;
+      animation: jellyLegsWaveMid 1.8s ease-in-out infinite 0.2s;
+    }}
+    @keyframes jellyLegsWaveR {{
+      0%, 100% {{ transform: rotate(0deg) skewX(0deg) scaleY(1); }}
+      40% {{ transform: rotate(14deg) skewX(10deg) scaleY(0.8); }}
+      75% {{ transform: rotate(-8deg) skewX(-8deg) scaleY(1.05); }}
+    }}
+    .jelly-legs-outer-r {{
+      transform-origin: 11px 9px;
+      animation: jellyLegsWaveR 1.8s ease-in-out infinite 0.4s;
+    }}
     .pb1 {{ animation: pixelBubble 4s steps(15) infinite; }}
     .pb2 {{ animation: pixelBubble 5.2s steps(15) infinite 1.2s; }}
     .pb3 {{ animation: pixelBubble 4.6s steps(15) infinite 2.5s; }}
@@ -266,6 +372,51 @@ def generate_pixel_svg(stats, w=850, h=180):
   <!-- Seabed -->
   <rect x="0" y="{sand_base}" width="{w}" height="20" fill="#0f172a" />
   <rect x="0" y="{sand_top}" width="{w}" height="8" fill="#1e293b" />
+
+  <!-- 🪨 Seabed Rocks (Reef Stones) -->
+  <polygon points="120,{sand_top} 128,{sand_top - 12} 144,{sand_top - 12} 152,{sand_top}" fill="#1e293b" />
+  <polygon points="128,{sand_top - 12} 134,{sand_top - 12} 130,{sand_top - 6} 124,{sand_top - 6}" fill="#334155" />
+  <ellipse cx="114" cy="{sand_top - 2}" rx="6" ry="4" fill="#334155" />
+
+  <ellipse cx="325" cy="{sand_top - 3}" rx="14" ry="7" fill="#1e293b" />
+  <ellipse cx="323" cy="{sand_top - 5}" rx="9" ry="4" fill="#334155" />
+  <ellipse cx="343" cy="{sand_top - 1}" rx="5" ry="3" fill="#475569" />
+
+  <polygon points="{w - 200},{sand_top} {w - 192},{sand_top - 10} {w - 176},{sand_top - 10} {w - 168},{sand_top}" fill="#1e293b" />
+  <polygon points="{w - 192},{sand_top - 10} {w - 186},{sand_top - 10} {w - 182},{sand_top - 6} {w - 189},{sand_top - 6}" fill="#475569" />
+  <circle cx="{w - 163}" cy="{sand_top - 2}" r="3" fill="#334155" />
+
+  <!-- 🪸 Vibrant Coral Reefs -->
+  <!-- 1. Left Branching Pink Coral -->
+  <g transform="translate(185, {sand_top})">
+    <rect x="-3" y="-16" width="6" height="16" fill="#f43f5e" />
+    <rect x="-11" y="-20" width="8" height="5" fill="#f43f5e" />
+    <rect x="-15" y="-26" width="5" height="8" fill="#fb7185" />
+    <rect x="-16" y="-30" width="7" height="4" fill="#fecdd3" />
+    <rect x="3" y="-22" width="8" height="5" fill="#f43f5e" />
+    <rect x="9" y="-28" width="5" height="8" fill="#fb7185" />
+    <rect x="8" y="-32" width="7" height="4" fill="#fecdd3" />
+    <rect x="-4" y="-28" width="8" height="12" fill="#fb7185" />
+    <rect x="-3" y="-34" width="6" height="6" fill="#fecdd3" />
+  </g>
+
+  <!-- 2. Center-Right Bioluminescent Purple Mushroom Coral -->
+  <g transform="translate(485, {sand_top})">
+    <path d="M -14 0 Q -14 -14 0 -14 Q 14 -14 14 0 Z" fill="#7c3aed" />
+    <path d="M -9 -2 Q -9 -8 0 -8 Q 9 -8 9 -2" stroke="#38bdf8" stroke-width="1.5" fill="none" />
+    <circle cx="0" cy="-11" r="2" fill="#38bdf8" />
+  </g>
+
+  <!-- 3. Right Sunset Orange Tube Coral -->
+  <g transform="translate({w - 235}, {sand_top})">
+    <rect x="-10" y="-6" width="20" height="6" fill="#c2410c" />
+    <rect x="-8" y="-22" width="5" height="16" fill="#ea580c" />
+    <ellipse cx="-5.5" cy="-22" rx="3.5" ry="2" fill="#fef08a" />
+    <rect x="-2" y="-18" width="6" height="12" fill="#f97316" />
+    <ellipse cx="1" cy="-18" rx="4" ry="2" fill="#fef08a" />
+    <rect x="5" y="-14" width="5" height="8" fill="#fb923c" />
+    <ellipse cx="7.5" cy="-14" rx="3.5" ry="2" fill="#fef08a" />
+  </g>
 
   <!-- Left Compact Kelp -->
   <g class="sway-left">
@@ -298,26 +449,34 @@ def generate_pixel_svg(stats, w=850, h=180):
 
   <!-- 🪼 TypeScript Jellyfish (Smooth Roaming and Propelling) -->
   <g class="jelly-roam" transform="translate({center_x - 50}, {jelly_y})">
-    <rect x="-20" y="-6" width="40" height="12" fill="#0284c7" />
-    <rect x="-16" y="-12" width="32" height="6" fill="#0284c7" />
-    <rect x="-10" y="-16" width="20" height="4" fill="#38bdf8" />
-    <rect x="-20" y="6" width="6" height="3" fill="#0369a1" />
-    <rect x="-6" y="6" width="6" height="3" fill="#0369a1" />
-    <rect x="8" y="6" width="6" height="3" fill="#0369a1" />
-    <rect x="-10" y="-3" width="3" height="3" fill="#ffffff" />
-    <rect x="-8" y="-3" width="2" height="3" fill="#082f49" />
-    <rect x="7" y="-3" width="3" height="3" fill="#ffffff" />
-    <rect x="9" y="-3" width="2" height="3" fill="#082f49" />
-    <rect x="-15" y="0" width="3" height="2" fill="#f43f5e" />
-    <rect x="12" y="0" width="3" height="2" fill="#f43f5e" />
-    <rect x="-6" y="-14" width="12" height="6" fill="#0284c7" />
-    <text x="0" y="-9" font-family="'Courier New', monospace" font-size="5.5" font-weight="900" fill="#ffffff" text-anchor="middle">TS</text>
-    <rect x="-14" y="9" width="3" height="9" fill="#38bdf8" />
-    <rect x="-11" y="18" width="3" height="7" fill="#38bdf8" />
-    <rect x="-4" y="9" width="3" height="14" fill="#bae6fd" />
-    <rect x="2" y="9" width="3" height="14" fill="#bae6fd" />
-    <rect x="11" y="9" width="3" height="9" fill="#38bdf8" />
-    <rect x="8" y="18" width="3" height="7" fill="#38bdf8" />
+    <g class="jelly-bell">
+      <rect x="-20" y="-6" width="40" height="12" fill="#0284c7" />
+      <rect x="-16" y="-12" width="32" height="6" fill="#0284c7" />
+      <rect x="-10" y="-16" width="20" height="4" fill="#38bdf8" />
+      <rect x="-20" y="6" width="6" height="3" fill="#0369a1" />
+      <rect x="-6" y="6" width="6" height="3" fill="#0369a1" />
+      <rect x="8" y="6" width="6" height="3" fill="#0369a1" />
+      <rect x="-10" y="-3" width="3" height="3" fill="#ffffff" />
+      <rect x="-8" y="-3" width="2" height="3" fill="#082f49" />
+      <rect x="7" y="-3" width="3" height="3" fill="#ffffff" />
+      <rect x="9" y="-3" width="2" height="3" fill="#082f49" />
+      <rect x="-15" y="0" width="3" height="2" fill="#f43f5e" />
+      <rect x="12" y="0" width="3" height="2" fill="#f43f5e" />
+      <rect x="-6" y="-14" width="12" height="6" fill="#0284c7" />
+      <text x="0" y="-9" font-family="'Courier New', monospace" font-size="5.5" font-weight="900" fill="#ffffff" text-anchor="middle">TS</text>
+    </g>
+    <g class="jelly-legs-outer-l">
+      <rect x="-14" y="9" width="3" height="9" fill="#38bdf8" />
+      <rect x="-11" y="18" width="3" height="7" fill="#38bdf8" />
+    </g>
+    <g class="jelly-legs-mid">
+      <rect x="-4" y="9" width="3" height="14" fill="#bae6fd" />
+      <rect x="2" y="9" width="3" height="14" fill="#bae6fd" />
+    </g>
+    <g class="jelly-legs-outer-r">
+      <rect x="11" y="9" width="3" height="9" fill="#38bdf8" />
+      <rect x="8" y="18" width="3" height="7" fill="#38bdf8" />
+    </g>
   </g>
 
   <!-- 🐠 Active Diverse Creatures -->
@@ -363,6 +522,7 @@ def main():
         "api/tank.svg",
         "api/dahee.svg",
         "api/aquarium.svg",
+        "api/reef.svg",
         "preview-pixel.svg"
     ]
     for fn in files:
