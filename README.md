@@ -1,26 +1,60 @@
 # 🐠 GitQuarium (깃콰리움)
-> Your commits and PRs swimming as living pixel fishes in real-time.
+> Your commits and PRs swimming as living marine creatures in real-time.
 
 <p align="center">
-  <img src="./preview.svg" alt="GitQuarium Live Preview" width="850" />
+  <a href="https://gitquarium.project-hh.com">
+    <img src="https://gitquarium.project-hh.com/api/live.svg" alt="GitQuarium Live Preview" width="100%" />
+  </a>
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/status-prototype-38bdf8?style=flat-square" alt="Status" />
-  <img src="https://img.shields.io/badge/theme-retro__pixel-ec4899?style=flat-square" alt="Theme" />
-  <img src="https://img.shields.io/badge/stack-Next.js_15-white?style=flat-square&logo=nextdotjs" alt="Next.js" />
+  <img src="https://img.shields.io/badge/status-live%20v1.0-38bdf8?style=flat-square" alt="Status" />
+  <img src="https://img.shields.io/badge/themes-Dual%20(Vector%20%7C%20Pixel)-ec4899?style=flat-square" alt="Theme" />
+  <img src="https://img.shields.io/badge/stack-Python%20%7C%20SVG%20Engine%20%7C%20AWS-white?style=flat-square" alt="Stack" />
   <img src="https://img.shields.io/badge/license-MIT-blue?style=flat-square" alt="License" />
 </p>
 
 ---
 
 ## 🌊 Overview
-**GitQuarium** turns your daily Git commits, pushes, and PR merges into living, swimming pixel fishes in your GitHub Profile README and macOS Menu Bar.
+**GitQuarium** turns your daily Git commits, pushes, and PR merges into living, swimming fishes and sea creatures directly inside your GitHub Profile README.
 
-- **TypeScript commits** spawn glowing **Type Jellyfishes** 🪼
-- **Daily commits** school as quick **Neon Tetras** 🐟
-- **Bug fixes** inflate spiky **Puffy Blowfishes** 🐡
-- **Major PR milestones** summon the legendary **Galaxy Whale** 🐋
+- 🪼 **TypeScript Jellyfish** — Translucent glowing dome with pulsing bell, cute blushing smile, and flowing wavy tentacles roaming across central waters.
+- 🐡 **Bug Pufferfish** — Chubby, spiky golden blowfish that inflates with bug fixes and bounces cheerfully.
+- ⚡ **React Ray** — Sleek cyan stingray with flapping wings and a sweeping tail gliding through the mid-depths.
+- 🏮 **Nightshift Anglerfish** — Mysterious deep-sea purple predator with an illuminated golden lantern bulb.
+- 🐟 **Neon Tetras** — Agile schooling fishes with brilliant electric cyan & hot-pink neon glow stripes.
+- 🐋 **Galaxy Whale** — The legendary leviathan summoned by major PR milestones and release merges!
+
+---
+
+## 🎨 Dual Theme System
+
+| 🌊 Theme 2: Neon Deep-Sea (Vector) | 👾 Theme 1: Retro Pixel Classic |
+|:---:|:---:|
+| <img src="https://gitquarium.project-hh.com/api/live.svg" width="100%" /> | <img src="https://gitquarium.project-hh.com/api/pixel.svg" width="100%" /> |
+| Sunlight rays, soft gradients, glowing vector fauna | 8-bit retro arcade aesthetic, coral reef, pixel sun shafts |
+
+---
+
+## 🚀 Embed in Your GitHub Profile
+Add this to your GitHub profile `README.md`:
+
+### 🌊 Theme 2: Neon Deep-Sea (Recommended)
+```markdown
+<a href="https://github.com/project-hh-com/gitquarium">
+  <img src="https://gitquarium.project-hh.com/api/YOUR_USERNAME?theme=vector" width="100%" />
+</a>
+```
+
+### 👾 Theme 1: Retro Pixel Classic
+```markdown
+<a href="https://github.com/project-hh-com/gitquarium">
+  <img src="https://gitquarium.project-hh.com/api/YOUR_USERNAME?theme=pixel" width="100%" />
+</a>
+```
+
+> **Tip**: Replace `YOUR_USERNAME` with your GitHub handle (e.g., `dahee90522`).
 
 ---
 
@@ -30,30 +64,23 @@
 |---|---|---|
 | `git commit` | Cast Fishing Rod 🪱 | Bait quality scales with commit message & lines changed |
 | `git push` | Float Bobbing 🌊 | Underwater ripples & shadows appear |
-| `PR Merge` | Reel In! 🎣 | **Catch of the Day!** New fish enters your tank |
-| `CI Failure` | Snapped Line | Snags old boots, sea debris, or poisonous blowfish |
+| `PR Merge` | Reel In! 🎣 | **Catch of the Day!** New creature enters your tank |
+| `CI Failure` | Snapped Line ⚠️ | Snags spiky bug blowfish or seabed debris |
 
 ---
 
-## 🎨 Dual Theme System
-- **Theme 1: Retro Pixel Classic (Default)** — Blocky pixel-art aesthetic matching GitHub's contribution grid.
-- **Theme 2: Neon Deep Sea Glow** — Modern dark vector theme with glowing bioluminescent creatures.
+## 📊 Live Creature HUD
+The top-right HUD card automatically cycles every 7 seconds:
+1. **Summary View**: `[30 Commits (7d) · 7 Creatures Swimming]`
+2. **Species Breakdown**: `[🐡1 · ⚡1 · 🏮1 / 🪼1 TS · 🐟3 Tetras]`
 
 ---
 
-## 🚀 Embed in Your GitHub Profile
-Add this single line to your GitHub profile `README.md`:
-
-```markdown
-![My GitQuarium](https://gitquarium.project-hh.com/api/dahee90522?theme=pixel)
-```
-
----
-
-## 🛠️ Tech Stack
-- **Web & Engine**: Next.js 15, TypeScript, Tailwind CSS, SVG Animation Engine
-- **Desktop Companion**: macOS Menu Bar (Tauri v2 / Swift)
-- **Data Pipeline**: GitHub REST & GraphQL API
+## 🛠️ Architecture & Tech Stack
+- **SVG Animation Engine**: Pure CSS `@keyframes` with hardware-accelerated transforms & SVG filters.
+- **Serverless Backend**: AWS Lambda (Python 3.12) & GitHub REST API data pipeline.
+- **CDN & Edge Delivery**: Amazon CloudFront & S3 bucket distribution.
+- **Automation**: GitHub Actions CI/CD pipeline on every commit.
 
 ---
 

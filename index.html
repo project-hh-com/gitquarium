@@ -28,7 +28,7 @@
     <div class="flex items-center gap-3">
       <span class="text-2xl">🐠</span>
       <span class="text-lg font-black tracking-tight bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">GitQuarium</span>
-      <span class="text-xs px-2 py-0.5 rounded-full bg-cyan-950/80 text-cyan-300 border border-cyan-800/60 font-mono">prototype v0.1</span>
+      <span class="text-xs px-2 py-0.5 rounded-full bg-cyan-950/80 text-cyan-300 border border-cyan-800/60 font-mono">live v1.0</span>
     </div>
     <div class="flex items-center gap-4 text-sm text-slate-400">
       <a href="https://github.com/project-hh-com/gitquarium" target="_blank" class="hover:text-cyan-400 transition flex items-center gap-1.5">
@@ -55,13 +55,23 @@
       </p>
     </div>
 
+    <!-- Theme Switcher Buttons -->
+    <div class="flex items-center gap-2 mb-4 bg-slate-900/90 p-1.5 rounded-xl border border-slate-800">
+      <button id="themeVecBtn" onclick="switchTheme('vector')" class="px-4 py-1.5 rounded-lg text-xs font-bold transition bg-cyan-600 text-white shadow">
+        🌊 Theme 2: Neon Deep-Sea
+      </button>
+      <button id="themePixBtn" onclick="switchTheme('pixel')" class="px-4 py-1.5 rounded-lg text-xs font-bold transition text-slate-400 hover:text-white">
+        👾 Theme 1: Retro Pixel
+      </button>
+    </div>
+
     <!-- Live SVG Aquarium Display -->
     <div class="w-full max-w-4xl bg-slate-900/60 p-3 rounded-2xl border border-slate-800 shadow-2xl shadow-cyan-950/40 relative group">
-      <div class="w-full aspect-[850/400] rounded-xl overflow-hidden bg-[#0a1226]">
-        <img src="./preview.svg" alt="GitQuarium Live Tank" class="w-full h-full object-contain" />
+      <div class="w-full aspect-[850/340] rounded-xl overflow-hidden bg-[#0a1226]">
+        <img id="tankPreview" src="./api/live.svg" alt="GitQuarium Live Tank" class="w-full h-full object-contain" />
       </div>
       <div class="absolute bottom-6 right-6 opacity-0 group-hover:opacity-100 transition">
-        <a href="./preview.svg" target="_blank" class="text-xs bg-slate-800/90 hover:bg-slate-700 text-cyan-300 px-3 py-1.5 rounded-lg border border-slate-700 shadow flex items-center gap-1.5">
+        <a id="rawSvgLink" href="./api/live.svg" target="_blank" class="text-xs bg-slate-800/90 hover:bg-slate-700 text-cyan-300 px-3 py-1.5 rounded-lg border border-slate-700 shadow flex items-center gap-1.5">
           SVG 원본 보기 ↗
         </a>
       </div>
@@ -78,25 +88,42 @@
           <span>복사</span>
         </button>
       </div>
-      <pre class="bg-black/60 p-3.5 rounded-lg border border-slate-800/80 text-cyan-300 font-mono text-xs overflow-x-auto select-all"><code id="embedCode">![My GitQuarium](https://gitquarium.project-hh.com/preview.svg)</code></pre>
+      <pre class="bg-black/60 p-3.5 rounded-lg border border-slate-800/80 text-cyan-300 font-mono text-xs overflow-x-auto select-all"><code id="embedCode">&lt;a href="https://github.com/project-hh-com/gitquarium"&gt;
+  &lt;img src="https://gitquarium.project-hh.com/api/dahee90522?theme=vector" width="100%" /&gt;
+&lt;/a&gt;</code></pre>
     </div>
 
-    <!-- Fish Roster Preview -->
-    <div class="w-full max-w-4xl mt-10 grid grid-cols-1 sm:grid-cols-3 gap-4">
+    <!-- Fish Roster Preview (All 5 Species) -->
+    <div class="w-full max-w-4xl mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
       <div class="p-4 rounded-xl bg-slate-900/50 border border-slate-800/70 hover:border-cyan-800/60 transition">
         <div class="text-2xl mb-1.5">🪼</div>
         <h3 class="font-bold text-sm text-slate-200">타입 해파리 (TypeScript)</h3>
-        <p class="text-xs text-slate-400 mt-1 leading-relaxed">TypeScript 커밋 시 부드럽게 유영하는 발광 해파리가 태어납니다.</p>
+        <p class="text-xs text-slate-400 mt-1 leading-relaxed">TypeScript 커밋 시 부드럽게 펄스하며 글라이딩 유영하는 발광 해파리입니다.</p>
+      </div>
+      <div class="p-4 rounded-xl bg-slate-900/50 border border-slate-800/70 hover:border-cyan-800/60 transition">
+        <div class="text-2xl mb-1.5">🐡</div>
+        <h3 class="font-bold text-sm text-slate-200">버그 복어 (Bug Blowfish)</h3>
+        <p class="text-xs text-slate-400 mt-1 leading-relaxed">버그 픽스 시 빵빵하게 가시를 부풀리며 통통 튀어 오르는 황금 복어입니다.</p>
+      </div>
+      <div class="p-4 rounded-xl bg-slate-900/50 border border-slate-800/70 hover:border-cyan-800/60 transition">
+        <div class="text-2xl mb-1.5">⚡</div>
+        <h3 class="font-bold text-sm text-slate-200">리액트 가오리 (React Ray)</h3>
+        <p class="text-xs text-slate-400 mt-1 leading-relaxed">우아한 날개짓과 긴 꼬리로 중층 수역을 시원하게 활강하는 시안 가오리입니다.</p>
+      </div>
+      <div class="p-4 rounded-xl bg-slate-900/50 border border-slate-800/70 hover:border-cyan-800/60 transition">
+        <div class="text-2xl mb-1.5">🏮</div>
+        <h3 class="font-bold text-sm text-slate-200">야근 아귀 (Nightshift Angler)</h3>
+        <p class="text-xs text-slate-400 mt-1 leading-relaxed">머리 위 황금 등불을 밝히며 깊은 심해 수역을 순회하는 야근의 수호자입니다.</p>
       </div>
       <div class="p-4 rounded-xl bg-slate-900/50 border border-slate-800/70 hover:border-cyan-800/60 transition">
         <div class="text-2xl mb-1.5">🐟</div>
-        <h3 class="font-bold text-sm text-slate-200">네온 테트라 (Daily Commits)</h3>
-        <p class="text-xs text-slate-400 mt-1 leading-relaxed">매일의 커밋마다 떼지어 활발하게 헤엄치는 네온 송사리 무리입니다.</p>
+        <h3 class="font-bold text-sm text-slate-200">네온 테트라 떼 (Neon Tetras)</h3>
+        <p class="text-xs text-slate-400 mt-1 leading-relaxed">전기빛 시안과 핫핑크 스트라이프를 뿜으며 떼지어 누비는 송사리 무리입니다.</p>
       </div>
       <div class="p-4 rounded-xl bg-slate-900/50 border border-slate-800/70 hover:border-cyan-800/60 transition">
         <div class="text-2xl mb-1.5">🐋</div>
-        <h3 class="font-bold text-sm text-slate-200">은하수 고래 (PR Milestones)</h3>
-        <p class="text-xs text-slate-400 mt-1 leading-relaxed">큰 마일스톤 PR 머지 시 어항 전체를 가로지르는 전설의 고래가 강림합니다.</p>
+        <h3 class="font-bold text-sm text-slate-200">은하수 고래 (Galaxy Whale)</h3>
+        <p class="text-xs text-slate-400 mt-1 leading-relaxed">대형 PR 머지 및 마일스톤 달성 시 어항을 웅장하게 가로지르는 전설의 고래입니다.</p>
       </div>
     </div>
 
@@ -108,6 +135,31 @@
   </footer>
 
   <script>
+    let currentTheme = 'vector';
+
+    function switchTheme(theme) {
+      currentTheme = theme;
+      const tankImg = document.getElementById('tankPreview');
+      const rawLink = document.getElementById('rawSvgLink');
+      const codeElem = document.getElementById('embedCode');
+      const vecBtn = document.getElementById('themeVecBtn');
+      const pixBtn = document.getElementById('themePixBtn');
+
+      if (theme === 'pixel') {
+        tankImg.src = './api/pixel.svg';
+        rawLink.href = './api/pixel.svg';
+        codeElem.innerText = '<a href="https://github.com/project-hh-com/gitquarium">\n  <img src="https://gitquarium.project-hh.com/api/dahee90522?theme=pixel" width="100%" />\n</a>';
+        pixBtn.className = 'px-4 py-1.5 rounded-lg text-xs font-bold transition bg-cyan-600 text-white shadow';
+        vecBtn.className = 'px-4 py-1.5 rounded-lg text-xs font-bold transition text-slate-400 hover:text-white';
+      } else {
+        tankImg.src = './api/live.svg';
+        rawLink.href = './api/live.svg';
+        codeElem.innerText = '<a href="https://github.com/project-hh-com/gitquarium">\n  <img src="https://gitquarium.project-hh.com/api/dahee90522?theme=vector" width="100%" />\n</a>';
+        vecBtn.className = 'px-4 py-1.5 rounded-lg text-xs font-bold transition bg-cyan-600 text-white shadow';
+        pixBtn.className = 'px-4 py-1.5 rounded-lg text-xs font-bold transition text-slate-400 hover:text-white';
+      }
+    }
+
     function copyMarkdown() {
       const text = document.getElementById('embedCode').innerText;
       navigator.clipboard.writeText(text).then(() => {
