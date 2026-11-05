@@ -9,31 +9,21 @@
 
   <style>
   <![CDATA[
-    @keyframes pixelSway1 {
-      0% { transform: translate(0, 0); }
-      50% { transform: translate(-6px, 0); }
-      100% { transform: translate(6px, 0); }
-    }
-    @keyframes pixelSway2 {
-      0% { transform: translate(0, 0); }
-      50% { transform: translate(5px, 0); }
-      100% { transform: translate(-5px, 0); }
-    }
     @keyframes pixelBubble {
       0% { transform: translateY(0); opacity: 0; }
       20% { opacity: 0.9; }
       80% { opacity: 0.7; }
       100% { transform: translateY(-145px); opacity: 0; }
     }
-    /* 🪼 TS Jellyfish Roaming and Propulsion Animation */
+    /* 🪼 TS Jellyfish Roaming and Propulsion Animation (Wide Open Waters) */
     @keyframes pixelJellyRoam {
-      0%   { transform: translate(375px, 79px); }
-      20%  { transform: translate(415px, 55px); }
-      35%  { transform: translate(460px, 67px); }
-      55%  { transform: translate(490px, 97px); }
-      70%  { transform: translate(445px, 105px); }
-      85%  { transform: translate(400px, 87px); }
-      100% { transform: translate(375px, 79px); }
+      0%   { transform: translate(285px, 79px); }
+      20%  { transform: translate(375px, 51px); }
+      35%  { transform: translate(495px, 65px); }
+      55%  { transform: translate(575px, 99px); }
+      70%  { transform: translate(485px, 109px); }
+      85%  { transform: translate(365px, 89px); }
+      100% { transform: translate(285px, 79px); }
     }
     .jelly-roam { animation: pixelJellyRoam 9s ease-in-out infinite; }
     @keyframes jellyBellPulse {
@@ -75,22 +65,20 @@
     .pb1 { animation: pixelBubble 4s steps(15) infinite; }
     .pb2 { animation: pixelBubble 5.2s steps(15) infinite 1.2s; }
     .pb3 { animation: pixelBubble 4.6s steps(15) infinite 2.5s; }
-    .sway-left { animation: pixelSway1 3.5s steps(6) infinite alternate; }
-    .sway-right { animation: pixelSway2 4s steps(6) infinite alternate; }
 
     @keyframes pufferTrack {
-      0%   { transform: translate(70px, 75px) scale(1, 1); }
-      15%  { transform: translate(220px, 45px) scale(1, 1); }
-      30%  { transform: translate(380px, 93px) scale(1, 1); }
-      42%  { transform: translate(540px, 50px) scale(1, 1); }
-      49%  { transform: translate(740px, 81px) scale(1, 1); }
-      50%  { transform: translate(740px, 81px) scale(-1, 1); }
-      65%  { transform: translate(560px, 108px) scale(-1, 1); }
-      78%  { transform: translate(390px, 46px) scale(-1, 1); }
-      90%  { transform: translate(210px, 90px) scale(-1, 1); }
-      100% { transform: translate(70px, 75px) scale(1, 1); }
+      0%   { transform: translate(-35px, 75px) scale(1, 1); }
+      15%  { transform: translate(190px, 45px) scale(1, 1); }
+      30%  { transform: translate(420px, 93px) scale(1, 1); }
+      42%  { transform: translate(660px, 50px) scale(1, 1); }
+      49%  { transform: translate(885px, 81px) scale(1, 1); }
+      50%  { transform: translate(885px, 81px) scale(-1, 1); }
+      65%  { transform: translate(640px, 108px) scale(-1, 1); }
+      78%  { transform: translate(410px, 46px) scale(-1, 1); }
+      90%  { transform: translate(170px, 90px) scale(-1, 1); }
+      100% { transform: translate(-35px, 75px) scale(1, 1); }
     }
-    .creature-puffer { animation: pufferTrack 21s ease-in-out infinite 0.5s; }
+    .creature-puffer { animation: pufferTrack 23s ease-in-out infinite 0.5s; }
     @keyframes pufferTailWag {
       0%, 100% { transform: scaleX(1); }
       50% { transform: scaleX(0.2); }
@@ -108,18 +96,18 @@
       animation: pufferPulse 2.5s ease-in-out infinite;
     }
     @keyframes rayTrack {
-      0%   { transform: translate(730px, 50px) scale(-1, 1); }
-      16%  { transform: translate(540px, 115px) scale(-1, 1); }
-      30%  { transform: translate(360px, 62px) scale(-1, 1); }
-      42%  { transform: translate(200px, 111px) scale(-1, 1); }
-      49%  { transform: translate(80px, 86px) scale(-1, 1); }
-      50%  { transform: translate(80px, 86px) scale(1, 1); }
-      66%  { transform: translate(280px, 46px) scale(1, 1); }
-      80%  { transform: translate(490px, 104px) scale(1, 1); }
-      92%  { transform: translate(650px, 68px) scale(1, 1); }
-      100% { transform: translate(730px, 50px) scale(-1, 1); }
+      0%   { transform: translate(890px, 50px) scale(-1, 1); }
+      16%  { transform: translate(630px, 115px) scale(-1, 1); }
+      30%  { transform: translate(410px, 62px) scale(-1, 1); }
+      42%  { transform: translate(190px, 111px) scale(-1, 1); }
+      49%  { transform: translate(-40px, 86px) scale(-1, 1); }
+      50%  { transform: translate(-40px, 86px) scale(1, 1); }
+      66%  { transform: translate(260px, 46px) scale(1, 1); }
+      80%  { transform: translate(540px, 104px) scale(1, 1); }
+      92%  { transform: translate(750px, 68px) scale(1, 1); }
+      100% { transform: translate(890px, 50px) scale(-1, 1); }
     }
-    .creature-ray { animation: rayTrack 19s ease-in-out infinite 2s; }
+    .creature-ray { animation: rayTrack 21s ease-in-out infinite 2s; }
     @keyframes rayWingFlap {
       0%, 100% { transform: scaleY(1); }
       50% { transform: scaleY(0.42); }
@@ -137,18 +125,18 @@
       animation: rayTailWave 0.9s ease-in-out infinite 0.2s;
     }
     @keyframes anglerTrack {
-      0%   { transform: translate(80px, 124px) scale(1, 1); }
+      0%   { transform: translate(-35px, 124px) scale(1, 1); }
       18%  { transform: translate(240px, 104px) scale(1, 1); }
-      32%  { transform: translate(430px, 131px) scale(1, 1); }
-      45%  { transform: translate(620px, 111px) scale(1, 1); }
-      49%  { transform: translate(720px, 127px) scale(1, 1); }
-      50%  { transform: translate(720px, 127px) scale(-1, 1); }
-      66%  { transform: translate(510px, 104px) scale(-1, 1); }
-      80%  { transform: translate(300px, 129px) scale(-1, 1); }
-      94%  { transform: translate(140px, 111px) scale(-1, 1); }
-      100% { transform: translate(80px, 124px) scale(1, 1); }
+      32%  { transform: translate(470px, 131px) scale(1, 1); }
+      45%  { transform: translate(700px, 111px) scale(1, 1); }
+      49%  { transform: translate(885px, 127px) scale(1, 1); }
+      50%  { transform: translate(885px, 127px) scale(-1, 1); }
+      66%  { transform: translate(570px, 104px) scale(-1, 1); }
+      80%  { transform: translate(330px, 129px) scale(-1, 1); }
+      94%  { transform: translate(100px, 111px) scale(-1, 1); }
+      100% { transform: translate(-35px, 124px) scale(1, 1); }
     }
-    .creature-angler { animation: anglerTrack 24s ease-in-out infinite 3.5s; }
+    .creature-angler { animation: anglerTrack 26s ease-in-out infinite 3.5s; }
     @keyframes anglerTailWag {
       0%, 100% { transform: scaleX(1); }
       50% { transform: scaleX(0.25); }
@@ -166,14 +154,14 @@
       animation: lanternBob 1.6s ease-in-out infinite;
     }
     @keyframes tetraTrack1 {
-      0%   { transform: translate(50px, 54px) scale(1, 1); }
-      20%  { transform: translate(277px, 42px) scale(1, 1); }
-      36%  { transform: translate(505px, 68px) scale(1, 1); }
-      49%  { transform: translate(740px, 46px) scale(1, 1); }
-      50%  { transform: translate(740px, 46px) scale(-1, 1); }
-      70%  { transform: translate(505px, 66px) scale(-1, 1); }
-      85%  { transform: translate(277px, 40px) scale(-1, 1); }
-      100% { transform: translate(50px, 54px) scale(1, 1); }
+      0%   { transform: translate(-25px, 54px) scale(1, 1); }
+      20%  { transform: translate(275px, 42px) scale(1, 1); }
+      36%  { transform: translate(575px, 68px) scale(1, 1); }
+      49%  { transform: translate(885px, 46px) scale(1, 1); }
+      50%  { transform: translate(885px, 46px) scale(-1, 1); }
+      70%  { transform: translate(575px, 66px) scale(-1, 1); }
+      85%  { transform: translate(275px, 40px) scale(-1, 1); }
+      100% { transform: translate(-25px, 54px) scale(1, 1); }
     }
     .tetra-1 { animation: tetraTrack1 14s ease-in-out infinite 0.0s; }
     @keyframes tetraTailWag1 {
@@ -185,14 +173,14 @@
       animation: tetraTailWag1 0.22s ease-in-out infinite;
     }
     @keyframes tetraTrack2 {
-      0%   { transform: translate(740px, 104px) scale(-1, 1); }
-      20%  { transform: translate(515px, 120px) scale(-1, 1); }
-      36%  { transform: translate(291px, 90px) scale(-1, 1); }
-      49%  { transform: translate(60px, 114px) scale(-1, 1); }
-      50%  { transform: translate(60px, 114px) scale(1, 1); }
-      70%  { transform: translate(291px, 88px) scale(1, 1); }
-      85%  { transform: translate(515px, 118px) scale(1, 1); }
-      100% { transform: translate(740px, 104px) scale(-1, 1); }
+      0%   { transform: translate(885px, 104px) scale(-1, 1); }
+      20%  { transform: translate(584px, 120px) scale(-1, 1); }
+      36%  { transform: translate(284px, 90px) scale(-1, 1); }
+      49%  { transform: translate(-25px, 114px) scale(-1, 1); }
+      50%  { transform: translate(-25px, 114px) scale(1, 1); }
+      70%  { transform: translate(284px, 88px) scale(1, 1); }
+      85%  { transform: translate(584px, 118px) scale(1, 1); }
+      100% { transform: translate(885px, 104px) scale(-1, 1); }
     }
     .tetra-2 { animation: tetraTrack2 16s ease-in-out infinite 3.5s; }
     @keyframes tetraTailWag2 {
@@ -204,14 +192,14 @@
       animation: tetraTailWag2 0.28s ease-in-out infinite;
     }
     @keyframes tetraTrack3 {
-      0%   { transform: translate(50px, 75px) scale(1, 1); }
-      20%  { transform: translate(277px, 89px) scale(1, 1); }
-      36%  { transform: translate(505px, 59px) scale(1, 1); }
-      49%  { transform: translate(740px, 87px) scale(1, 1); }
-      50%  { transform: translate(740px, 87px) scale(-1, 1); }
-      70%  { transform: translate(505px, 61px) scale(-1, 1); }
-      85%  { transform: translate(277px, 91px) scale(-1, 1); }
-      100% { transform: translate(50px, 75px) scale(1, 1); }
+      0%   { transform: translate(-25px, 75px) scale(1, 1); }
+      20%  { transform: translate(275px, 89px) scale(1, 1); }
+      36%  { transform: translate(575px, 59px) scale(1, 1); }
+      49%  { transform: translate(885px, 87px) scale(1, 1); }
+      50%  { transform: translate(885px, 87px) scale(-1, 1); }
+      70%  { transform: translate(575px, 61px) scale(-1, 1); }
+      85%  { transform: translate(275px, 91px) scale(-1, 1); }
+      100% { transform: translate(-25px, 75px) scale(1, 1); }
     }
     .tetra-3 { animation: tetraTrack3 15s ease-in-out infinite 6.0s; }
     @keyframes tetraTailWag3 {
@@ -223,14 +211,14 @@
       animation: tetraTailWag3 0.25s ease-in-out infinite;
     }
     @keyframes tetraTrack4 {
-      0%   { transform: translate(740px, 133px) scale(-1, 1); }
-      20%  { transform: translate(515px, 119px) scale(-1, 1); }
-      36%  { transform: translate(291px, 145px) scale(-1, 1); }
-      49%  { transform: translate(60px, 123px) scale(-1, 1); }
-      50%  { transform: translate(60px, 123px) scale(1, 1); }
-      70%  { transform: translate(291px, 147px) scale(1, 1); }
-      85%  { transform: translate(515px, 121px) scale(1, 1); }
-      100% { transform: translate(740px, 133px) scale(-1, 1); }
+      0%   { transform: translate(885px, 133px) scale(-1, 1); }
+      20%  { transform: translate(584px, 119px) scale(-1, 1); }
+      36%  { transform: translate(284px, 145px) scale(-1, 1); }
+      49%  { transform: translate(-25px, 123px) scale(-1, 1); }
+      50%  { transform: translate(-25px, 123px) scale(1, 1); }
+      70%  { transform: translate(284px, 147px) scale(1, 1); }
+      85%  { transform: translate(584px, 121px) scale(1, 1); }
+      100% { transform: translate(885px, 133px) scale(-1, 1); }
     }
     .tetra-4 { animation: tetraTrack4 18s ease-in-out infinite 2.0s; }
     @keyframes tetraTailWag4 {
@@ -244,9 +232,8 @@
   ]]>
   </style>
 
-  <!-- Deep Ocean Base -->
-  <rect width="850" height="180" fill="url(#pixelGrid)" />
-  <rect width="850" height="180" fill="none" stroke="#334155" stroke-width="4" />
+  <!-- Deep Ocean Base (Clean Borderless Rounded Tank) -->
+  <rect width="850" height="180" fill="url(#pixelGrid)" rx="8" />
 
   <!-- Seabed -->
   <rect x="0" y="160" width="850" height="20" fill="#0f172a" />
@@ -295,24 +282,6 @@
     <ellipse cx="1" cy="-18" rx="4" ry="2" fill="#fef08a" />
     <rect x="5" y="-14" width="5" height="8" fill="#fb923c" />
     <ellipse cx="7.5" cy="-14" rx="3.5" ry="2" fill="#fef08a" />
-  </g>
-
-  <!-- Left Compact Kelp -->
-  <g class="sway-left">
-    <rect x="80" y="142" width="6" height="12" fill="#059669" />
-    <rect x="74" y="118" width="6" height="24" fill="#059669" />
-    <rect x="80" y="94" width="6" height="24" fill="#10b981" />
-    <rect x="86" y="70" width="6" height="24" fill="#34d399" />
-    <rect x="80" y="52" width="6" height="18" fill="#6ee7b7" />
-  </g>
-
-  <!-- Right Compact Kelp -->
-  <g class="sway-right">
-    <rect x="765" y="142" width="6" height="12" fill="#047857" />
-    <rect x="771" y="114" width="6" height="28" fill="#059669" />
-    <rect x="765" y="86" width="6" height="28" fill="#10b981" />
-    <rect x="759" y="58" width="6" height="28" fill="#34d399" />
-    <rect x="765" y="40" width="6" height="18" fill="#6ee7b7" />
   </g>
 
   <!-- Compact Bubbles -->
@@ -399,7 +368,7 @@
     </g>
   </g>
   <!-- 🐟 Neon Tetra 1 -->
-  <g class="tetra-1" transform="translate(50, 54)">
+  <g class="tetra-1" transform="translate(-25, 54)">
     <rect x="-10" y="-3" width="20" height="6" fill="#0f172a" />
     <rect x="-5" y="-3" width="15" height="2" fill="#00f0ff" />
     <rect x="-6" y="1" width="12" height="2" fill="#ff0055" />
@@ -410,7 +379,7 @@
     </g>
   </g>
   <!-- 🐟 Neon Tetra 2 -->
-  <g class="tetra-2" transform="translate(740, 104)">
+  <g class="tetra-2" transform="translate(885, 104)">
     <rect x="-10" y="-3" width="20" height="6" fill="#0f172a" />
     <rect x="-5" y="-3" width="15" height="2" fill="#10b981" />
     <rect x="-6" y="1" width="12" height="2" fill="#f59e0b" />
@@ -421,7 +390,7 @@
     </g>
   </g>
   <!-- 🐟 Neon Tetra 3 -->
-  <g class="tetra-3" transform="translate(50, 75)">
+  <g class="tetra-3" transform="translate(-25, 75)">
     <rect x="-10" y="-3" width="20" height="6" fill="#0f172a" />
     <rect x="-5" y="-3" width="15" height="2" fill="#a855f7" />
     <rect x="-6" y="1" width="12" height="2" fill="#ec4899" />
@@ -432,7 +401,7 @@
     </g>
   </g>
   <!-- 🐟 Neon Tetra 4 -->
-  <g class="tetra-4" transform="translate(740, 133)">
+  <g class="tetra-4" transform="translate(885, 133)">
     <rect x="-10" y="-3" width="20" height="6" fill="#0f172a" />
     <rect x="-5" y="-3" width="15" height="2" fill="#38bdf8" />
     <rect x="-6" y="1" width="12" height="2" fill="#f43f5e" />

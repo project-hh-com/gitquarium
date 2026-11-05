@@ -95,20 +95,20 @@ def generate_pixel_svg(stats, w=850, h=180):
     styles = []
     elements = []
 
-    # 1. 🐡 Bug Pufferfish (복어) - chubby buoyant waddling & bouncing sine waves
+    # 1. 🐡 Bug Pufferfish (복어) - chubby buoyant waddling & bouncing across full ocean (offscreen bounds)
     styles.append(f"""    @keyframes pufferTrack {{
-      0%   {{ transform: translate(70px, {int(h*0.42)}px) scale(1, 1); }}
-      15%  {{ transform: translate(220px, {int(h*0.25)}px) scale(1, 1); }}
-      30%  {{ transform: translate(380px, {int(h*0.52)}px) scale(1, 1); }}
-      42%  {{ transform: translate(540px, {int(h*0.28)}px) scale(1, 1); }}
-      49%  {{ transform: translate({w - 110}px, {int(h*0.45)}px) scale(1, 1); }}
-      50%  {{ transform: translate({w - 110}px, {int(h*0.45)}px) scale(-1, 1); }}
-      65%  {{ transform: translate(560px, {int(h*0.60)}px) scale(-1, 1); }}
-      78%  {{ transform: translate(390px, {int(h*0.26)}px) scale(-1, 1); }}
-      90%  {{ transform: translate(210px, {int(h*0.50)}px) scale(-1, 1); }}
-      100% {{ transform: translate(70px, {int(h*0.42)}px) scale(1, 1); }}
+      0%   {{ transform: translate(-35px, {int(h*0.42)}px) scale(1, 1); }}
+      15%  {{ transform: translate(190px, {int(h*0.25)}px) scale(1, 1); }}
+      30%  {{ transform: translate(420px, {int(h*0.52)}px) scale(1, 1); }}
+      42%  {{ transform: translate(660px, {int(h*0.28)}px) scale(1, 1); }}
+      49%  {{ transform: translate({w + 35}px, {int(h*0.45)}px) scale(1, 1); }}
+      50%  {{ transform: translate({w + 35}px, {int(h*0.45)}px) scale(-1, 1); }}
+      65%  {{ transform: translate(640px, {int(h*0.60)}px) scale(-1, 1); }}
+      78%  {{ transform: translate(410px, {int(h*0.26)}px) scale(-1, 1); }}
+      90%  {{ transform: translate(170px, {int(h*0.50)}px) scale(-1, 1); }}
+      100% {{ transform: translate(-35px, {int(h*0.42)}px) scale(1, 1); }}
     }}
-    .creature-puffer {{ animation: pufferTrack 21s ease-in-out infinite 0.5s; }}
+    .creature-puffer {{ animation: pufferTrack 23s ease-in-out infinite 0.5s; }}
     @keyframes pufferTailWag {{
       0%, 100% {{ transform: scaleX(1); }}
       50% {{ transform: scaleX(0.2); }}
@@ -142,20 +142,20 @@ def generate_pixel_svg(stats, w=850, h=180):
     </g>
   </g>""")
 
-    # 2. ⚡ React Ray (가오리) - wide diagonal swoops & altitude glides
+    # 2. ⚡ React Ray (가오리) - wide diagonal swoops & altitude glides across full ocean (offscreen bounds)
     styles.append(f"""    @keyframes rayTrack {{
-      0%   {{ transform: translate({w - 120}px, {int(h*0.28)}px) scale(-1, 1); }}
-      16%  {{ transform: translate(540px, {int(h*0.64)}px) scale(-1, 1); }}
-      30%  {{ transform: translate(360px, {int(h*0.35)}px) scale(-1, 1); }}
-      42%  {{ transform: translate(200px, {int(h*0.62)}px) scale(-1, 1); }}
-      49%  {{ transform: translate(80px, {int(h*0.48)}px) scale(-1, 1); }}
-      50%  {{ transform: translate(80px, {int(h*0.48)}px) scale(1, 1); }}
-      66%  {{ transform: translate(280px, {int(h*0.26)}px) scale(1, 1); }}
-      80%  {{ transform: translate(490px, {int(h*0.58)}px) scale(1, 1); }}
-      92%  {{ transform: translate(650px, {int(h*0.38)}px) scale(1, 1); }}
-      100% {{ transform: translate({w - 120}px, {int(h*0.28)}px) scale(-1, 1); }}
+      0%   {{ transform: translate({w + 40}px, {int(h*0.28)}px) scale(-1, 1); }}
+      16%  {{ transform: translate(630px, {int(h*0.64)}px) scale(-1, 1); }}
+      30%  {{ transform: translate(410px, {int(h*0.35)}px) scale(-1, 1); }}
+      42%  {{ transform: translate(190px, {int(h*0.62)}px) scale(-1, 1); }}
+      49%  {{ transform: translate(-40px, {int(h*0.48)}px) scale(-1, 1); }}
+      50%  {{ transform: translate(-40px, {int(h*0.48)}px) scale(1, 1); }}
+      66%  {{ transform: translate(260px, {int(h*0.26)}px) scale(1, 1); }}
+      80%  {{ transform: translate(540px, {int(h*0.58)}px) scale(1, 1); }}
+      92%  {{ transform: translate(750px, {int(h*0.38)}px) scale(1, 1); }}
+      100% {{ transform: translate({w + 40}px, {int(h*0.28)}px) scale(-1, 1); }}
     }}
-    .creature-ray {{ animation: rayTrack 19s ease-in-out infinite 2s; }}
+    .creature-ray {{ animation: rayTrack 21s ease-in-out infinite 2s; }}
     @keyframes rayWingFlap {{
       0%, 100% {{ transform: scaleY(1); }}
       50% {{ transform: scaleY(0.42); }}
@@ -186,20 +186,20 @@ def generate_pixel_svg(stats, w=850, h=180):
     </g>
   </g>""")
 
-    # 3. 🏮 Nightshift Anglerfish (야근 아귀) - deep sea prowler with bobbing lantern
+    # 3. 🏮 Nightshift Anglerfish (야근 아귀) - deep sea prowler with bobbing lantern (offscreen bounds)
     styles.append(f"""    @keyframes anglerTrack {{
-      0%   {{ transform: translate(80px, {int(h*0.69)}px) scale(1, 1); }}
+      0%   {{ transform: translate(-35px, {int(h*0.69)}px) scale(1, 1); }}
       18%  {{ transform: translate(240px, {int(h*0.58)}px) scale(1, 1); }}
-      32%  {{ transform: translate(430px, {int(h*0.73)}px) scale(1, 1); }}
-      45%  {{ transform: translate(620px, {int(h*0.62)}px) scale(1, 1); }}
-      49%  {{ transform: translate({w - 130}px, {int(h*0.71)}px) scale(1, 1); }}
-      50%  {{ transform: translate({w - 130}px, {int(h*0.71)}px) scale(-1, 1); }}
-      66%  {{ transform: translate(510px, {int(h*0.58)}px) scale(-1, 1); }}
-      80%  {{ transform: translate(300px, {int(h*0.72)}px) scale(-1, 1); }}
-      94%  {{ transform: translate(140px, {int(h*0.62)}px) scale(-1, 1); }}
-      100% {{ transform: translate(80px, {int(h*0.69)}px) scale(1, 1); }}
+      32%  {{ transform: translate(470px, {int(h*0.73)}px) scale(1, 1); }}
+      45%  {{ transform: translate(700px, {int(h*0.62)}px) scale(1, 1); }}
+      49%  {{ transform: translate({w + 35}px, {int(h*0.71)}px) scale(1, 1); }}
+      50%  {{ transform: translate({w + 35}px, {int(h*0.71)}px) scale(-1, 1); }}
+      66%  {{ transform: translate(570px, {int(h*0.58)}px) scale(-1, 1); }}
+      80%  {{ transform: translate(330px, {int(h*0.72)}px) scale(-1, 1); }}
+      94%  {{ transform: translate(100px, {int(h*0.62)}px) scale(-1, 1); }}
+      100% {{ transform: translate(-35px, {int(h*0.69)}px) scale(1, 1); }}
     }}
-    .creature-angler {{ animation: anglerTrack 24s ease-in-out infinite 3.5s; }}
+    .creature-angler {{ animation: anglerTrack 26s ease-in-out infinite 3.5s; }}
     @keyframes anglerTailWag {{
       0%, 100% {{ transform: scaleX(1); }}
       50% {{ transform: scaleX(0.25); }}
@@ -241,8 +241,8 @@ def generate_pixel_svg(stats, w=850, h=180):
 
     for idx, (ty, dur, delay, c1, c2, rev, (dy1, dy2, dy3), tail_speed) in enumerate(tetras, start=1):
         sx = -1 if rev else 1
-        x1 = w - 110 if rev else 50
-        x2 = 60 if rev else w - 110
+        x1 = w + 35 if rev else -25
+        x2 = -25 if rev else w + 35
         mid1 = int(x1 + (x2 - x1) * 0.33)
         mid2 = int(x1 + (x2 - x1) * 0.66)
 
@@ -292,31 +292,21 @@ def generate_pixel_svg(stats, w=850, h=180):
 
   <style>
   <![CDATA[
-    @keyframes pixelSway1 {{
-      0% {{ transform: translate(0, 0); }}
-      50% {{ transform: translate(-6px, 0); }}
-      100% {{ transform: translate(6px, 0); }}
-    }}
-    @keyframes pixelSway2 {{
-      0% {{ transform: translate(0, 0); }}
-      50% {{ transform: translate(5px, 0); }}
-      100% {{ transform: translate(-5px, 0); }}
-    }}
     @keyframes pixelBubble {{
       0% {{ transform: translateY(0); opacity: 0; }}
       20% {{ opacity: 0.9; }}
       80% {{ opacity: 0.7; }}
       100% {{ transform: translateY(-{h - 35}px); opacity: 0; }}
     }}
-    /* 🪼 TS Jellyfish Roaming and Propulsion Animation */
+    /* 🪼 TS Jellyfish Roaming and Propulsion Animation (Wide Open Waters) */
     @keyframes pixelJellyRoam {{
-      0%   {{ transform: translate({center_x - 50}px, {jelly_y}px); }}
-      20%  {{ transform: translate({center_x - 10}px, {jelly_y - 24}px); }}
-      35%  {{ transform: translate({center_x + 35}px, {jelly_y - 12}px); }}
-      55%  {{ transform: translate({center_x + 65}px, {jelly_y + 18}px); }}
-      70%  {{ transform: translate({center_x + 20}px, {jelly_y + 26}px); }}
-      85%  {{ transform: translate({center_x - 25}px, {jelly_y + 8}px); }}
-      100% {{ transform: translate({center_x - 50}px, {jelly_y}px); }}
+      0%   {{ transform: translate({center_x - 140}px, {jelly_y}px); }}
+      20%  {{ transform: translate({center_x - 50}px, {jelly_y - 28}px); }}
+      35%  {{ transform: translate({center_x + 70}px, {jelly_y - 14}px); }}
+      55%  {{ transform: translate({center_x + 150}px, {jelly_y + 20}px); }}
+      70%  {{ transform: translate({center_x + 60}px, {jelly_y + 30}px); }}
+      85%  {{ transform: translate({center_x - 60}px, {jelly_y + 10}px); }}
+      100% {{ transform: translate({center_x - 140}px, {jelly_y}px); }}
     }}
     .jelly-roam {{ animation: pixelJellyRoam 9s ease-in-out infinite; }}
     @keyframes jellyBellPulse {{
@@ -358,16 +348,13 @@ def generate_pixel_svg(stats, w=850, h=180):
     .pb1 {{ animation: pixelBubble 4s steps(15) infinite; }}
     .pb2 {{ animation: pixelBubble 5.2s steps(15) infinite 1.2s; }}
     .pb3 {{ animation: pixelBubble 4.6s steps(15) infinite 2.5s; }}
-    .sway-left {{ animation: pixelSway1 3.5s steps(6) infinite alternate; }}
-    .sway-right {{ animation: pixelSway2 4s steps(6) infinite alternate; }}
 
 {creature_styles}
   ]]>
   </style>
 
-  <!-- Deep Ocean Base -->
-  <rect width="{w}" height="{h}" fill="url(#pixelGrid)" />
-  <rect width="{w}" height="{h}" fill="none" stroke="#334155" stroke-width="4" />
+  <!-- Deep Ocean Base (Clean Borderless Rounded Tank) -->
+  <rect width="{w}" height="{h}" fill="url(#pixelGrid)" rx="8" />
 
   <!-- Seabed -->
   <rect x="0" y="{sand_base}" width="{w}" height="20" fill="#0f172a" />
@@ -416,24 +403,6 @@ def generate_pixel_svg(stats, w=850, h=180):
     <ellipse cx="1" cy="-18" rx="4" ry="2" fill="#fef08a" />
     <rect x="5" y="-14" width="5" height="8" fill="#fb923c" />
     <ellipse cx="7.5" cy="-14" rx="3.5" ry="2" fill="#fef08a" />
-  </g>
-
-  <!-- Left Compact Kelp -->
-  <g class="sway-left">
-    <rect x="80" y="{h - 38}" width="6" height="12" fill="#059669" />
-    <rect x="74" y="{h - 62}" width="6" height="24" fill="#059669" />
-    <rect x="80" y="{h - 86}" width="6" height="24" fill="#10b981" />
-    <rect x="86" y="{h - 110}" width="6" height="24" fill="#34d399" />
-    <rect x="80" y="{h - 128}" width="6" height="18" fill="#6ee7b7" />
-  </g>
-
-  <!-- Right Compact Kelp -->
-  <g class="sway-right">
-    <rect x="{kelp_r_x}" y="{h - 38}" width="6" height="12" fill="#047857" />
-    <rect x="{kelp_r_x + 6}" y="{h - 66}" width="6" height="28" fill="#059669" />
-    <rect x="{kelp_r_x}" y="{h - 94}" width="6" height="28" fill="#10b981" />
-    <rect x="{kelp_r_x - 6}" y="{h - 122}" width="6" height="28" fill="#34d399" />
-    <rect x="{kelp_r_x}" y="{h - 140}" width="6" height="18" fill="#6ee7b7" />
   </g>
 
   <!-- Compact Bubbles -->
@@ -523,6 +492,8 @@ def main():
         "api/dahee.svg",
         "api/aquarium.svg",
         "api/reef.svg",
+        "api/lagoon.svg",
+        "api/open.svg",
         "preview-pixel.svg"
     ]
     for fn in files:

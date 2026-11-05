@@ -1,0 +1,430 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 180" width="100%" height="100%" shape-rendering="crispEdges">
+  <defs>
+    <pattern id="pixelGrid" width="8" height="8" patternUnits="userSpaceOnUse">
+      <rect width="8" height="8" fill="#0b1021" />
+      <rect x="0" y="0" width="4" height="4" fill="#0f172a" opacity="0.4" />
+      <rect x="4" y="4" width="4" height="4" fill="#0f172a" opacity="0.4" />
+    </pattern>
+  </defs>
+
+  <style>
+  <![CDATA[
+    @keyframes pixelBubble {
+      0% { transform: translateY(0); opacity: 0; }
+      20% { opacity: 0.9; }
+      80% { opacity: 0.7; }
+      100% { transform: translateY(-145px); opacity: 0; }
+    }
+    /* 🪼 TS Jellyfish Roaming and Propulsion Animation (Wide Open Waters) */
+    @keyframes pixelJellyRoam {
+      0%   { transform: translate(285px, 79px); }
+      20%  { transform: translate(375px, 51px); }
+      35%  { transform: translate(495px, 65px); }
+      55%  { transform: translate(575px, 99px); }
+      70%  { transform: translate(485px, 109px); }
+      85%  { transform: translate(365px, 89px); }
+      100% { transform: translate(285px, 79px); }
+    }
+    .jelly-roam { animation: pixelJellyRoam 9s ease-in-out infinite; }
+    @keyframes jellyBellPulse {
+      0%, 100% { transform: scale(1, 1); }
+      35% { transform: scale(0.92, 1.14); }
+      65% { transform: scale(1.08, 0.88); }
+    }
+    .jelly-bell {
+      transform-origin: 0px 0px;
+      animation: jellyBellPulse 1.8s ease-in-out infinite;
+    }
+    @keyframes jellyLegsWaveL {
+      0%, 100% { transform: rotate(0deg) skewX(0deg) scaleY(1); }
+      40% { transform: rotate(-14deg) skewX(-10deg) scaleY(0.8); }
+      75% { transform: rotate(8deg) skewX(8deg) scaleY(1.05); }
+    }
+    .jelly-legs-outer-l {
+      transform-origin: -14px 9px;
+      animation: jellyLegsWaveL 1.8s ease-in-out infinite;
+    }
+    @keyframes jellyLegsWaveMid {
+      0%, 100% { transform: scaleY(1) skewX(0deg); }
+      40% { transform: scaleY(0.72) skewX(6deg); }
+      75% { transform: scaleY(1.12) skewX(-6deg); }
+    }
+    .jelly-legs-mid {
+      transform-origin: 0px 9px;
+      animation: jellyLegsWaveMid 1.8s ease-in-out infinite 0.2s;
+    }
+    @keyframes jellyLegsWaveR {
+      0%, 100% { transform: rotate(0deg) skewX(0deg) scaleY(1); }
+      40% { transform: rotate(14deg) skewX(10deg) scaleY(0.8); }
+      75% { transform: rotate(-8deg) skewX(-8deg) scaleY(1.05); }
+    }
+    .jelly-legs-outer-r {
+      transform-origin: 11px 9px;
+      animation: jellyLegsWaveR 1.8s ease-in-out infinite 0.4s;
+    }
+    .pb1 { animation: pixelBubble 4s steps(15) infinite; }
+    .pb2 { animation: pixelBubble 5.2s steps(15) infinite 1.2s; }
+    .pb3 { animation: pixelBubble 4.6s steps(15) infinite 2.5s; }
+
+    @keyframes pufferTrack {
+      0%   { transform: translate(-35px, 75px) scale(1, 1); }
+      15%  { transform: translate(190px, 45px) scale(1, 1); }
+      30%  { transform: translate(420px, 93px) scale(1, 1); }
+      42%  { transform: translate(660px, 50px) scale(1, 1); }
+      49%  { transform: translate(885px, 81px) scale(1, 1); }
+      50%  { transform: translate(885px, 81px) scale(-1, 1); }
+      65%  { transform: translate(640px, 108px) scale(-1, 1); }
+      78%  { transform: translate(410px, 46px) scale(-1, 1); }
+      90%  { transform: translate(170px, 90px) scale(-1, 1); }
+      100% { transform: translate(-35px, 75px) scale(1, 1); }
+    }
+    .creature-puffer { animation: pufferTrack 23s ease-in-out infinite 0.5s; }
+    @keyframes pufferTailWag {
+      0%, 100% { transform: scaleX(1); }
+      50% { transform: scaleX(0.2); }
+    }
+    .puffer-tail {
+      transform-origin: -8px 0px;
+      animation: pufferTailWag 0.35s ease-in-out infinite;
+    }
+    @keyframes pufferPulse {
+      0%, 100% { transform: scale(1, 1); }
+      50% { transform: scale(1.08, 1.08); }
+    }
+    .puffer-body {
+      transform-origin: 0px 0px;
+      animation: pufferPulse 2.5s ease-in-out infinite;
+    }
+    @keyframes rayTrack {
+      0%   { transform: translate(890px, 50px) scale(-1, 1); }
+      16%  { transform: translate(630px, 115px) scale(-1, 1); }
+      30%  { transform: translate(410px, 62px) scale(-1, 1); }
+      42%  { transform: translate(190px, 111px) scale(-1, 1); }
+      49%  { transform: translate(-40px, 86px) scale(-1, 1); }
+      50%  { transform: translate(-40px, 86px) scale(1, 1); }
+      66%  { transform: translate(260px, 46px) scale(1, 1); }
+      80%  { transform: translate(540px, 104px) scale(1, 1); }
+      92%  { transform: translate(750px, 68px) scale(1, 1); }
+      100% { transform: translate(890px, 50px) scale(-1, 1); }
+    }
+    .creature-ray { animation: rayTrack 21s ease-in-out infinite 2s; }
+    @keyframes rayWingFlap {
+      0%, 100% { transform: scaleY(1); }
+      50% { transform: scaleY(0.42); }
+    }
+    .ray-wings {
+      transform-origin: 0px 0px;
+      animation: rayWingFlap 0.9s ease-in-out infinite;
+    }
+    @keyframes rayTailWave {
+      0%, 100% { transform: rotate(-8deg); }
+      50% { transform: rotate(8deg); }
+    }
+    .ray-tail {
+      transform-origin: -10px 0px;
+      animation: rayTailWave 0.9s ease-in-out infinite 0.2s;
+    }
+    @keyframes anglerTrack {
+      0%   { transform: translate(-35px, 124px) scale(1, 1); }
+      18%  { transform: translate(240px, 104px) scale(1, 1); }
+      32%  { transform: translate(470px, 131px) scale(1, 1); }
+      45%  { transform: translate(700px, 111px) scale(1, 1); }
+      49%  { transform: translate(885px, 127px) scale(1, 1); }
+      50%  { transform: translate(885px, 127px) scale(-1, 1); }
+      66%  { transform: translate(570px, 104px) scale(-1, 1); }
+      80%  { transform: translate(330px, 129px) scale(-1, 1); }
+      94%  { transform: translate(100px, 111px) scale(-1, 1); }
+      100% { transform: translate(-35px, 124px) scale(1, 1); }
+    }
+    .creature-angler { animation: anglerTrack 26s ease-in-out infinite 3.5s; }
+    @keyframes anglerTailWag {
+      0%, 100% { transform: scaleX(1); }
+      50% { transform: scaleX(0.25); }
+    }
+    .angler-tail {
+      transform-origin: -9px 0px;
+      animation: anglerTailWag 0.55s ease-in-out infinite;
+    }
+    @keyframes lanternBob {
+      0%, 100% { transform: translateY(0) rotate(0deg); opacity: 1; }
+      50% { transform: translateY(-3px) rotate(6deg); opacity: 0.8; }
+    }
+    .angler-lantern {
+      transform-origin: 2px -5px;
+      animation: lanternBob 1.6s ease-in-out infinite;
+    }
+    @keyframes tetraTrack1 {
+      0%   { transform: translate(-25px, 54px) scale(1, 1); }
+      20%  { transform: translate(275px, 42px) scale(1, 1); }
+      36%  { transform: translate(575px, 68px) scale(1, 1); }
+      49%  { transform: translate(885px, 46px) scale(1, 1); }
+      50%  { transform: translate(885px, 46px) scale(-1, 1); }
+      70%  { transform: translate(575px, 66px) scale(-1, 1); }
+      85%  { transform: translate(275px, 40px) scale(-1, 1); }
+      100% { transform: translate(-25px, 54px) scale(1, 1); }
+    }
+    .tetra-1 { animation: tetraTrack1 14s ease-in-out infinite 0.0s; }
+    @keyframes tetraTailWag1 {
+      0%, 100% { transform: scaleX(1); }
+      50% { transform: scaleX(0.18); }
+    }
+    .tetra-tail-1 {
+      transform-origin: -10px 0px;
+      animation: tetraTailWag1 0.22s ease-in-out infinite;
+    }
+    @keyframes tetraTrack2 {
+      0%   { transform: translate(885px, 104px) scale(-1, 1); }
+      20%  { transform: translate(584px, 120px) scale(-1, 1); }
+      36%  { transform: translate(284px, 90px) scale(-1, 1); }
+      49%  { transform: translate(-25px, 114px) scale(-1, 1); }
+      50%  { transform: translate(-25px, 114px) scale(1, 1); }
+      70%  { transform: translate(284px, 88px) scale(1, 1); }
+      85%  { transform: translate(584px, 118px) scale(1, 1); }
+      100% { transform: translate(885px, 104px) scale(-1, 1); }
+    }
+    .tetra-2 { animation: tetraTrack2 16s ease-in-out infinite 3.5s; }
+    @keyframes tetraTailWag2 {
+      0%, 100% { transform: scaleX(1); }
+      50% { transform: scaleX(0.18); }
+    }
+    .tetra-tail-2 {
+      transform-origin: -10px 0px;
+      animation: tetraTailWag2 0.28s ease-in-out infinite;
+    }
+    @keyframes tetraTrack3 {
+      0%   { transform: translate(-25px, 75px) scale(1, 1); }
+      20%  { transform: translate(275px, 89px) scale(1, 1); }
+      36%  { transform: translate(575px, 59px) scale(1, 1); }
+      49%  { transform: translate(885px, 87px) scale(1, 1); }
+      50%  { transform: translate(885px, 87px) scale(-1, 1); }
+      70%  { transform: translate(575px, 61px) scale(-1, 1); }
+      85%  { transform: translate(275px, 91px) scale(-1, 1); }
+      100% { transform: translate(-25px, 75px) scale(1, 1); }
+    }
+    .tetra-3 { animation: tetraTrack3 15s ease-in-out infinite 6.0s; }
+    @keyframes tetraTailWag3 {
+      0%, 100% { transform: scaleX(1); }
+      50% { transform: scaleX(0.18); }
+    }
+    .tetra-tail-3 {
+      transform-origin: -10px 0px;
+      animation: tetraTailWag3 0.25s ease-in-out infinite;
+    }
+    @keyframes tetraTrack4 {
+      0%   { transform: translate(885px, 133px) scale(-1, 1); }
+      20%  { transform: translate(584px, 119px) scale(-1, 1); }
+      36%  { transform: translate(284px, 145px) scale(-1, 1); }
+      49%  { transform: translate(-25px, 123px) scale(-1, 1); }
+      50%  { transform: translate(-25px, 123px) scale(1, 1); }
+      70%  { transform: translate(284px, 147px) scale(1, 1); }
+      85%  { transform: translate(584px, 121px) scale(1, 1); }
+      100% { transform: translate(885px, 133px) scale(-1, 1); }
+    }
+    .tetra-4 { animation: tetraTrack4 18s ease-in-out infinite 2.0s; }
+    @keyframes tetraTailWag4 {
+      0%, 100% { transform: scaleX(1); }
+      50% { transform: scaleX(0.18); }
+    }
+    .tetra-tail-4 {
+      transform-origin: -10px 0px;
+      animation: tetraTailWag4 0.3s ease-in-out infinite;
+    }
+  ]]>
+  </style>
+
+  <!-- Deep Ocean Base (Clean Borderless Rounded Tank) -->
+  <rect width="850" height="180" fill="url(#pixelGrid)" rx="8" />
+
+  <!-- Seabed -->
+  <rect x="0" y="160" width="850" height="20" fill="#0f172a" />
+  <rect x="0" y="152" width="850" height="8" fill="#1e293b" />
+
+  <!-- 🪨 Seabed Rocks (Reef Stones) -->
+  <polygon points="120,152 128,140 144,140 152,152" fill="#1e293b" />
+  <polygon points="128,140 134,140 130,146 124,146" fill="#334155" />
+  <ellipse cx="114" cy="150" rx="6" ry="4" fill="#334155" />
+
+  <ellipse cx="325" cy="149" rx="14" ry="7" fill="#1e293b" />
+  <ellipse cx="323" cy="147" rx="9" ry="4" fill="#334155" />
+  <ellipse cx="343" cy="151" rx="5" ry="3" fill="#475569" />
+
+  <polygon points="650,152 658,142 674,142 682,152" fill="#1e293b" />
+  <polygon points="658,142 664,142 668,146 661,146" fill="#475569" />
+  <circle cx="687" cy="150" r="3" fill="#334155" />
+
+  <!-- 🪸 Vibrant Coral Reefs -->
+  <!-- 1. Left Branching Pink Coral -->
+  <g transform="translate(185, 152)">
+    <rect x="-3" y="-16" width="6" height="16" fill="#f43f5e" />
+    <rect x="-11" y="-20" width="8" height="5" fill="#f43f5e" />
+    <rect x="-15" y="-26" width="5" height="8" fill="#fb7185" />
+    <rect x="-16" y="-30" width="7" height="4" fill="#fecdd3" />
+    <rect x="3" y="-22" width="8" height="5" fill="#f43f5e" />
+    <rect x="9" y="-28" width="5" height="8" fill="#fb7185" />
+    <rect x="8" y="-32" width="7" height="4" fill="#fecdd3" />
+    <rect x="-4" y="-28" width="8" height="12" fill="#fb7185" />
+    <rect x="-3" y="-34" width="6" height="6" fill="#fecdd3" />
+  </g>
+
+  <!-- 2. Center-Right Bioluminescent Purple Mushroom Coral -->
+  <g transform="translate(485, 152)">
+    <path d="M -14 0 Q -14 -14 0 -14 Q 14 -14 14 0 Z" fill="#7c3aed" />
+    <path d="M -9 -2 Q -9 -8 0 -8 Q 9 -8 9 -2" stroke="#38bdf8" stroke-width="1.5" fill="none" />
+    <circle cx="0" cy="-11" r="2" fill="#38bdf8" />
+  </g>
+
+  <!-- 3. Right Sunset Orange Tube Coral -->
+  <g transform="translate(615, 152)">
+    <rect x="-10" y="-6" width="20" height="6" fill="#c2410c" />
+    <rect x="-8" y="-22" width="5" height="16" fill="#ea580c" />
+    <ellipse cx="-5.5" cy="-22" rx="3.5" ry="2" fill="#fef08a" />
+    <rect x="-2" y="-18" width="6" height="12" fill="#f97316" />
+    <ellipse cx="1" cy="-18" rx="4" ry="2" fill="#fef08a" />
+    <rect x="5" y="-14" width="5" height="8" fill="#fb923c" />
+    <ellipse cx="7.5" cy="-14" rx="3.5" ry="2" fill="#fef08a" />
+  </g>
+
+  <!-- Compact Bubbles -->
+  <g class="pb1" transform="translate(110, 150)">
+    <rect x="0" y="0" width="5" height="5" fill="#38bdf8" />
+  </g>
+  <g class="pb2" transform="translate(505, 150)">
+    <rect x="0" y="0" width="6" height="6" fill="#7dd3fc" />
+  </g>
+  <g class="pb3" transform="translate(710, 150)">
+    <rect x="0" y="0" width="5" height="5" fill="#38bdf8" />
+  </g>
+
+  <!-- 🪼 TypeScript Jellyfish (Smooth Roaming and Propelling) -->
+  <g class="jelly-roam" transform="translate(375, 79)">
+    <g class="jelly-bell">
+      <rect x="-20" y="-6" width="40" height="12" fill="#0284c7" />
+      <rect x="-16" y="-12" width="32" height="6" fill="#0284c7" />
+      <rect x="-10" y="-16" width="20" height="4" fill="#38bdf8" />
+      <rect x="-20" y="6" width="6" height="3" fill="#0369a1" />
+      <rect x="-6" y="6" width="6" height="3" fill="#0369a1" />
+      <rect x="8" y="6" width="6" height="3" fill="#0369a1" />
+      <rect x="-10" y="-3" width="3" height="3" fill="#ffffff" />
+      <rect x="-8" y="-3" width="2" height="3" fill="#082f49" />
+      <rect x="7" y="-3" width="3" height="3" fill="#ffffff" />
+      <rect x="9" y="-3" width="2" height="3" fill="#082f49" />
+      <rect x="-15" y="0" width="3" height="2" fill="#f43f5e" />
+      <rect x="12" y="0" width="3" height="2" fill="#f43f5e" />
+      <rect x="-6" y="-14" width="12" height="6" fill="#0284c7" />
+      <text x="0" y="-9" font-family="'Courier New', monospace" font-size="5.5" font-weight="900" fill="#ffffff" text-anchor="middle">TS</text>
+    </g>
+    <g class="jelly-legs-outer-l">
+      <rect x="-14" y="9" width="3" height="9" fill="#38bdf8" />
+      <rect x="-11" y="18" width="3" height="7" fill="#38bdf8" />
+    </g>
+    <g class="jelly-legs-mid">
+      <rect x="-4" y="9" width="3" height="14" fill="#bae6fd" />
+      <rect x="2" y="9" width="3" height="14" fill="#bae6fd" />
+    </g>
+    <g class="jelly-legs-outer-r">
+      <rect x="11" y="9" width="3" height="9" fill="#38bdf8" />
+      <rect x="8" y="18" width="3" height="7" fill="#38bdf8" />
+    </g>
+  </g>
+
+  <!-- 🐠 Active Diverse Creatures -->
+  <!-- 🐡 Bug Pufferfish -->
+  <g class="creature-puffer" transform="translate(70, 75)">
+    <g class="puffer-body">
+      <rect x="-8" y="-6" width="16" height="12" fill="#f59e0b" />
+      <rect x="-6" y="-8" width="12" height="16" fill="#f59e0b" />
+      <rect x="-4" y="2" width="8" height="4" fill="#fef3c7" />
+      <rect x="4" y="-4" width="3" height="3" fill="#ffffff" />
+      <rect x="5" y="-3" width="2" height="2" fill="#000000" />
+      <rect x="-1" y="-10" width="3" height="2" fill="#d97706" />
+      <rect x="-1" y="8" width="3" height="2" fill="#d97706" />
+    </g>
+    <g class="puffer-tail">
+      <rect x="-11" y="-3" width="3" height="6" fill="#d97706" />
+    </g>
+  </g>
+  <!-- ⚡ React Ray -->
+  <g class="creature-ray" transform="translate(730, 50)">
+    <g class="ray-wings">
+      <polygon points="0,-7 14,0 0,7 -10,0" fill="#0284c7" />
+      <polygon points="-2,-4 8,0 -2,4 -6,0" fill="#38bdf8" />
+      <circle cx="4" cy="-2" r="1.2" fill="#ffffff" />
+      <circle cx="4" cy="2" r="1.2" fill="#ffffff" />
+    </g>
+    <g class="ray-tail">
+      <line x1="-10" y1="0" x2="-22" y2="0" stroke="#38bdf8" stroke-width="1.5" />
+    </g>
+  </g>
+  <!-- 🏮 Nightshift Anglerfish -->
+  <g class="creature-angler" transform="translate(80, 124)">
+    <ellipse cx="0" cy="0" rx="9" ry="6" fill="#4c1d95" />
+    <rect x="4" y="-2" width="2" height="2" fill="#ffffff" />
+    <g class="angler-tail">
+      <polygon points="-9,0 -14,-4 -14,4" fill="#5b21b6" />
+    </g>
+    <g class="angler-lantern">
+      <path d="M 2 -5 Q 6 -11 9 -8" stroke="#a78bfa" stroke-width="1.5" fill="none" />
+      <circle cx="9" cy="-8" r="2.5" fill="#fef08a" />
+    </g>
+  </g>
+  <!-- 🐟 Neon Tetra 1 -->
+  <g class="tetra-1" transform="translate(-25, 54)">
+    <rect x="-10" y="-3" width="20" height="6" fill="#0f172a" />
+    <rect x="-5" y="-3" width="15" height="2" fill="#00f0ff" />
+    <rect x="-6" y="1" width="12" height="2" fill="#ff0055" />
+    <rect x="5" y="-2" width="2" height="2" fill="#ffffff" />
+    <g class="tetra-tail-1">
+      <rect x="-13" y="-5" width="3" height="3" fill="#38bdf8" />
+      <rect x="-13" y="3" width="3" height="3" fill="#38bdf8" />
+    </g>
+  </g>
+  <!-- 🐟 Neon Tetra 2 -->
+  <g class="tetra-2" transform="translate(885, 104)">
+    <rect x="-10" y="-3" width="20" height="6" fill="#0f172a" />
+    <rect x="-5" y="-3" width="15" height="2" fill="#10b981" />
+    <rect x="-6" y="1" width="12" height="2" fill="#f59e0b" />
+    <rect x="5" y="-2" width="2" height="2" fill="#ffffff" />
+    <g class="tetra-tail-2">
+      <rect x="-13" y="-5" width="3" height="3" fill="#38bdf8" />
+      <rect x="-13" y="3" width="3" height="3" fill="#38bdf8" />
+    </g>
+  </g>
+  <!-- 🐟 Neon Tetra 3 -->
+  <g class="tetra-3" transform="translate(-25, 75)">
+    <rect x="-10" y="-3" width="20" height="6" fill="#0f172a" />
+    <rect x="-5" y="-3" width="15" height="2" fill="#a855f7" />
+    <rect x="-6" y="1" width="12" height="2" fill="#ec4899" />
+    <rect x="5" y="-2" width="2" height="2" fill="#ffffff" />
+    <g class="tetra-tail-3">
+      <rect x="-13" y="-5" width="3" height="3" fill="#38bdf8" />
+      <rect x="-13" y="3" width="3" height="3" fill="#38bdf8" />
+    </g>
+  </g>
+  <!-- 🐟 Neon Tetra 4 -->
+  <g class="tetra-4" transform="translate(885, 133)">
+    <rect x="-10" y="-3" width="20" height="6" fill="#0f172a" />
+    <rect x="-5" y="-3" width="15" height="2" fill="#38bdf8" />
+    <rect x="-6" y="1" width="12" height="2" fill="#f43f5e" />
+    <rect x="5" y="-2" width="2" height="2" fill="#ffffff" />
+    <g class="tetra-tail-4">
+      <rect x="-13" y="-5" width="3" height="3" fill="#38bdf8" />
+      <rect x="-13" y="3" width="3" height="3" fill="#38bdf8" />
+    </g>
+  </g>
+
+  <!-- Top Left HUD (Slim) -->
+  <g transform="translate(16, 12)">
+    <rect x="0" y="0" width="190" height="32" fill="#020617" stroke="#38bdf8" stroke-width="1.5" />
+    <rect x="4" y="4" width="5" height="5" fill="#ec4899" />
+    <text x="14" y="15" font-family="'Courier New', monospace" font-size="9.5" font-weight="900" fill="#38bdf8">🐠 GITQUARIUM</text>
+    <text x="14" y="25" font-family="'Courier New', monospace" font-size="8" font-weight="700" fill="#94a3b8">@dahee90522'S TANK</text>
+  </g>
+
+  <!-- Top Right HUD (Slim) -->
+  <g transform="translate(640, 12)">
+    <rect x="0" y="0" width="200" height="32" fill="#020617" stroke="#10b981" stroke-width="1.5" />
+    <rect x="8" y="8" width="5" height="5" fill="#10b981" />
+    <text x="18" y="15" font-family="'Courier New', monospace" font-size="8.5" font-weight="900" fill="#e2e8f0">30 COMMITS (7D)</text>
+    <text x="18" y="25" font-family="'Courier New', monospace" font-size="7.5" font-weight="700" fill="#38bdf8">7 CREATURES SWIMMING</text>
+  </g>
+</svg>
