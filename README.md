@@ -2,7 +2,7 @@
 > Your commits and PRs swimming as living marine creatures in real-time.
 
 <p align="center">
-  <a href="https://gitquarium.project-hh.com">
+  <a href="https://gitquarium.project-hh.com/index.html">
     <img src="https://gitquarium.project-hh.com/api/live.svg" alt="GitQuarium Live Preview" width="100%" />
   </a>
 </p>
