@@ -362,6 +362,7 @@ def main():
         f"api/{args.user}-live.svg",
         "api/tank.svg",
         "api/dahee.svg",
+        "api/aquarium.svg",
         "preview-pixel.svg"
     ]
     for fn in files:
